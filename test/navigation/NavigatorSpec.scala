@@ -43,6 +43,14 @@ class NavigatorSpec extends SpecBase with ScalaCheckPropertyChecks with Generato
               .mustBe(routes.IndexController.onPageLoad())
         }
       }
+
+      "must go from Protector Type Page to Protector Name page" in {
+        forAll(arbitrary[UserAnswers]) {
+          answers =>
+            navigator.nextPage(ProtectorTypePage, NormalMode, answers)
+              .mustBe(routes.ProtectorsNameController.onPageLoad(NormalMode))
+        }
+      }
     }
 
     "in Check mode" - {

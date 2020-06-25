@@ -18,3 +18,8 @@ GET        /protectorType                        controllers.ProtectorTypeContro
 POST       /protectorType                        controllers.ProtectorTypeController.onSubmit(mode: Mode = NormalMode)
 GET        /changeProtectorType                  controllers.ProtectorTypeController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeProtectorType                  controllers.ProtectorTypeController.onSubmit(mode: Mode = CheckMode)
+
+GET        /protectorsName                        controllers.ProtectorsNameController.onPageLoad(mode: Mode = NormalMode)
+POST       /protectorsName                        controllers.ProtectorsNameController.onSubmit(mode: Mode = NormalMode)
+GET        /changeProtectorsName                  controllers.ProtectorsNameController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeProtectorsName                  controllers.ProtectorsNameController.onSubmit(mode: Mode = CheckMode)

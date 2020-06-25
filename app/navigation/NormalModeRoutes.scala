@@ -14,24 +14,16 @@
  * limitations under the License.
  */
 
-package generators
+package navigation
 
-import models._
-import org.scalacheck.Arbitrary.arbitrary
-import org.scalacheck.{Arbitrary, Gen}
+import controllers.routes
+import models.{NormalMode, UserAnswers}
+import pages.{Page, ProtectorTypePage}
+import play.api.mvc.Call
 
-trait ModelGenerators {
-
-  implicit lazy val arbitraryProtectorsName: Arbitrary[ProtectorsName] =
-    Arbitrary {
-      for {
-        FirstName <- arbitrary[String]
-        MiddleName <- arbitrary[String]
-      } yield ProtectorsName(FirstName, MiddleName)
-    }
-
-  implicit lazy val arbitraryProtectorType: Arbitrary[ProtectorType] =
-    Arbitrary {
-      Gen.oneOf(ProtectorType.values.toSeq)
-    }
+object NormalModeRoutes {
+  val normalRoutes: Page => UserAnswers => Call = {
+    case ProtectorTypePage => _ => routes.ProtectorsNameController.onPageLoad(NormalMode)
+    case _ => _ => routes.IndexController.onPageLoad()
+  }
 }

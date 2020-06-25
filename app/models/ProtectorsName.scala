@@ -14,24 +14,12 @@
  * limitations under the License.
  */
 
-package generators
+package models
 
-import models._
-import org.scalacheck.Arbitrary.arbitrary
-import org.scalacheck.{Arbitrary, Gen}
+import play.api.libs.json._
 
-trait ModelGenerators {
+case class ProtectorsName (FirstName: String, MiddleName: String)
 
-  implicit lazy val arbitraryProtectorsName: Arbitrary[ProtectorsName] =
-    Arbitrary {
-      for {
-        FirstName <- arbitrary[String]
-        MiddleName <- arbitrary[String]
-      } yield ProtectorsName(FirstName, MiddleName)
-    }
-
-  implicit lazy val arbitraryProtectorType: Arbitrary[ProtectorType] =
-    Arbitrary {
-      Gen.oneOf(ProtectorType.values.toSeq)
-    }
+object ProtectorsName {
+  implicit val format = Json.format[ProtectorsName]
 }

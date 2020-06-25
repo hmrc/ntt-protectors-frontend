@@ -130,9 +130,19 @@ compliant.nine.p2.2=Digital Accessibility Centre
 compliant.nine.p2.3=The full service was tested by HMRC and included disabled users.
 compliant.nine.p3=This page was prepared on [date when it was first published]. It was last updated on [date when it was last updated].
 
-protectorType.title = protectorType
-protectorType.heading = protectorType
+protectorType.title = Register and Maintain a Trust
+protectorType.heading = Is the protector an individual or a business?
 protectorType.individual = Individual
 protectorType.business = Business
 protectorType.checkYourAnswersLabel = protectorType
 protectorType.error.required = Select protectorType
+
+protectorsName.title = Register and Maintain a Trust
+protectorsName.heading = What is the Protector's Name?
+protectorsName.FirstName = First Name
+protectorsName.MiddleName = Middle Name
+protectorsName.checkYourAnswersLabel = protectorsName
+protectorsName.error.FirstName.required = Enter First Name
+protectorsName.error.MiddleName.required = Enter Middle Name
+protectorsName.error.FirstName.length = First Name must be 100 characters or less
+protectorsName.error.MiddleName.length = Middle Name must be 100 characters or less

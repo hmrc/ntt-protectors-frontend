@@ -14,24 +14,19 @@
  * limitations under the License.
  */
 
-package generators
+package pages
 
-import models._
-import org.scalacheck.Arbitrary.arbitrary
-import org.scalacheck.{Arbitrary, Gen}
+import models.ProtectorsName
+import pages.behaviours.PageBehaviours
 
-trait ModelGenerators {
+class ProtectorsNamePageSpec extends PageBehaviours {
 
-  implicit lazy val arbitraryProtectorsName: Arbitrary[ProtectorsName] =
-    Arbitrary {
-      for {
-        FirstName <- arbitrary[String]
-        MiddleName <- arbitrary[String]
-      } yield ProtectorsName(FirstName, MiddleName)
-    }
+  "ProtectorsNamePage" - {
 
-  implicit lazy val arbitraryProtectorType: Arbitrary[ProtectorType] =
-    Arbitrary {
-      Gen.oneOf(ProtectorType.values.toSeq)
-    }
+    beRetrievable[ProtectorsName](ProtectorsNamePage)
+
+    beSettable[ProtectorsName](ProtectorsNamePage)
+
+    beRemovable[ProtectorsName](ProtectorsNamePage)
+  }
 }

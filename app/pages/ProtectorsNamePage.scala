@@ -14,24 +14,14 @@
  * limitations under the License.
  */
 
-package generators
+package pages
 
-import models._
-import org.scalacheck.Arbitrary.arbitrary
-import org.scalacheck.{Arbitrary, Gen}
+import models.ProtectorsName
+import play.api.libs.json.JsPath
 
-trait ModelGenerators {
+case object ProtectorsNamePage extends QuestionPage[ProtectorsName] {
 
-  implicit lazy val arbitraryProtectorsName: Arbitrary[ProtectorsName] =
-    Arbitrary {
-      for {
-        FirstName <- arbitrary[String]
-        MiddleName <- arbitrary[String]
-      } yield ProtectorsName(FirstName, MiddleName)
-    }
+  override def path: JsPath = JsPath \ toString
 
-  implicit lazy val arbitraryProtectorType: Arbitrary[ProtectorType] =
-    Arbitrary {
-      Gen.oneOf(ProtectorType.values.toSeq)
-    }
+  override def toString: String = "protectorsName"
 }

@@ -75,6 +75,14 @@ class NavigatorSpec extends SpecBase with ScalaCheckPropertyChecks with Generato
               .mustBe(routes.DoYouKnowTheirNationalityController.onPageLoad(NormalMode))
         }
       }
+
+      "must go from Do you know their nationality Page to NationalityPage" in {
+        forAll(arbitrary[UserAnswers]) {
+          answers =>
+            navigator.nextPage(DoYouKnowTheirNationalityPage, NormalMode, answers)
+              .mustBe(routes.ProtectorNationalityController.onPageLoad(NormalMode))
+        }
+      }
     }
 
     "in Check mode" - {

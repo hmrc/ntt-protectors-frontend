@@ -166,3 +166,9 @@ protectorDateOfBirth.error.required.all = Enter the protectorDateOfBirth
 protectorDateOfBirth.error.required.two = The protectorDateOfBirth must include {0} and {1}
 protectorDateOfBirth.error.required = The protectorDateOfBirth must include {0}
 protectorDateOfBirth.error.invalid = Enter a real ProtectorDateOfBirth
+
+protectorNationality.title = protectorNationality
+protectorNationality.heading = protectorNationality
+protectorNationality.checkYourAnswersLabel = protectorNationality
+protectorNationality.error.required = Enter protectorNationality
+protectorNationality.error.length = ProtectorNationality must be 100 characters or less

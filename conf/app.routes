@@ -38,3 +38,8 @@ GET        /protectorDateOfBirth                  controllers.ProtectorDateOfBir
 POST       /protectorDateOfBirth                  controllers.ProtectorDateOfBirthController.onSubmit(mode: Mode = NormalMode)
 GET        /changeProtectorDateOfBirth                        controllers.ProtectorDateOfBirthController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeProtectorDateOfBirth                        controllers.ProtectorDateOfBirthController.onSubmit(mode: Mode = CheckMode)
+
+GET        /protectorNationality                        controllers.ProtectorNationalityController.onPageLoad(mode: Mode = NormalMode)
+POST       /protectorNationality                        controllers.ProtectorNationalityController.onSubmit(mode: Mode = NormalMode)
+GET        /changeProtectorNationality                  controllers.ProtectorNationalityController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeProtectorNationality                  controllers.ProtectorNationalityController.onSubmit(mode: Mode = CheckMode)

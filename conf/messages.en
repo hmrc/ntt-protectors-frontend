@@ -147,3 +147,8 @@ protectorsName.error.FirstName.required = Enter First Name
 protectorsName.error.LastName.required = Enter Middle Name
 protectorsName.error.FirstName.length = First Name must be 100 characters or less
 protectorsName.error.MiddleName.length = Middle Name must be 100 characters or less
+
+doYouKnowProtectorDateOfBirth.title = Register and Maintain a Trust
+doYouKnowProtectorDateOfBirth.heading = Do you know John Doe's date of birth?
+doYouKnowProtectorDateOfBirth.checkYourAnswersLabel = John Doe's date of birth
+doYouKnowProtectorDateOfBirth.error.required = Select yes if know John Doe's date of birth

@@ -18,12 +18,13 @@ package navigation
 
 import controllers.routes
 import models.{NormalMode, UserAnswers}
-import pages.{Page, ProtectorTypePage}
+import pages.{Page, ProtectorTypePage, ProtectorsNamePage}
 import play.api.mvc.Call
 
 object NormalModeRoutes {
   val normalRoutes: Page => UserAnswers => Call = {
     case ProtectorTypePage => _ => routes.ProtectorsNameController.onPageLoad(NormalMode)
+    case ProtectorsNamePage => _ => routes.DoYouKnowProtectorDateOfBirthController.onPageLoad(NormalMode)
     case _ => _ => routes.IndexController.onPageLoad()
   }
 }

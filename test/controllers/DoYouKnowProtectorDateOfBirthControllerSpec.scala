@@ -17,15 +17,15 @@
 package controllers
 
 import base.SpecBase
-import forms.ProtectorTypeFormProvider
+import forms.DoYouKnowProtectorDateOfBirthFormProvider
 import matchers.JsonMatchers
-import models.{NormalMode, ProtectorType, UserAnswers}
+import models.{NormalMode, UserAnswers}
 import navigation.{FakeNavigator, Navigator}
 import org.mockito.ArgumentCaptor
 import org.mockito.Matchers.any
 import org.mockito.Mockito.{times, verify, when}
 import org.scalatestplus.mockito.MockitoSugar
-import pages.ProtectorTypePage
+import pages.DoYouKnowProtectorDateOfBirthPage
 import play.api.inject.bind
 import play.api.libs.json.{JsObject, Json}
 import play.api.mvc.Call
@@ -33,20 +33,20 @@ import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import play.twirl.api.Html
 import repositories.SessionRepository
-import uk.gov.hmrc.viewmodels.NunjucksSupport
+import uk.gov.hmrc.viewmodels.{NunjucksSupport, Radios}
 
 import scala.concurrent.Future
 
-class ProtectorTypeControllerSpec extends SpecBase with MockitoSugar with NunjucksSupport with JsonMatchers {
+class DoYouKnowProtectorDateOfBirthControllerSpec extends SpecBase with MockitoSugar with NunjucksSupport with JsonMatchers {
 
   def onwardRoute = Call("GET", "/foo")
 
-  lazy val protectorTypeRoute = routes.ProtectorTypeController.onPageLoad(NormalMode).url
-
-  val formProvider = new ProtectorTypeFormProvider()
+  val formProvider = new DoYouKnowProtectorDateOfBirthFormProvider()
   val form = formProvider()
 
-  "ProtectorType Controller" - {
+  lazy val doYouKnowProtectorDateOfBirthRoute = routes.DoYouKnowProtectorDateOfBirthController.onPageLoad(NormalMode).url
+
+  "DoYouKnowProtectorDateOfBirth Controller" - {
 
     "must return OK and the correct view for a GET" in {
 
@@ -54,7 +54,7 @@ class ProtectorTypeControllerSpec extends SpecBase with MockitoSugar with Nunjuc
         .thenReturn(Future.successful(Html("")))
 
       val application = applicationBuilder(userAnswers = Some(emptyUserAnswers)).build()
-      val request = FakeRequest(GET, protectorTypeRoute)
+      val request = FakeRequest(GET, doYouKnowProtectorDateOfBirthRoute)
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])
       val jsonCaptor = ArgumentCaptor.forClass(classOf[JsObject])
 
@@ -67,10 +67,10 @@ class ProtectorTypeControllerSpec extends SpecBase with MockitoSugar with Nunjuc
       val expectedJson = Json.obj(
         "form"   -> form,
         "mode"   -> NormalMode,
-        "radios" -> ProtectorType.radios(form)
+        "radios" -> Radios.yesNo(form("value"))
       )
 
-      templateCaptor.getValue mustEqual "protectorType.njk"
+      templateCaptor.getValue mustEqual "doYouKnowProtectorDateOfBirth.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -81,9 +81,9 @@ class ProtectorTypeControllerSpec extends SpecBase with MockitoSugar with Nunjuc
       when(mockRenderer.render(any(), any())(any()))
         .thenReturn(Future.successful(Html("")))
 
-      val userAnswers = UserAnswers(userAnswersId).set(ProtectorTypePage, ProtectorType.values.head).success.value
+      val userAnswers = UserAnswers(userAnswersId).set(DoYouKnowProtectorDateOfBirthPage, true).success.value
       val application = applicationBuilder(userAnswers = Some(userAnswers)).build()
-      val request = FakeRequest(GET, protectorTypeRoute)
+      val request = FakeRequest(GET, doYouKnowProtectorDateOfBirthRoute)
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])
       val jsonCaptor = ArgumentCaptor.forClass(classOf[JsObject])
 
@@ -93,15 +93,15 @@ class ProtectorTypeControllerSpec extends SpecBase with MockitoSugar with Nunjuc
 
       verify(mockRenderer, times(1)).render(templateCaptor.capture(), jsonCaptor.capture())(any())
 
-      val filledForm = form.bind(Map("value" -> ProtectorType.values.head.toString))
+      val filledForm = form.bind(Map("value" -> "true"))
 
       val expectedJson = Json.obj(
         "form"   -> filledForm,
         "mode"   -> NormalMode,
-        "radios" -> ProtectorType.radios(filledForm)
+        "radios" -> Radios.yesNo(filledForm("value"))
       )
 
-      templateCaptor.getValue mustEqual "protectorType.njk"
+      templateCaptor.getValue mustEqual "doYouKnowProtectorDateOfBirth.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -122,8 +122,8 @@ class ProtectorTypeControllerSpec extends SpecBase with MockitoSugar with Nunjuc
           .build()
 
       val request =
-        FakeRequest(POST, protectorTypeRoute)
-          .withFormUrlEncodedBody(("value", ProtectorType.values.head.toString))
+        FakeRequest(POST, doYouKnowProtectorDateOfBirthRoute)
+          .withFormUrlEncodedBody(("value", "true"))
 
       val result = route(application, request).value
 
@@ -140,8 +140,8 @@ class ProtectorTypeControllerSpec extends SpecBase with MockitoSugar with Nunjuc
         .thenReturn(Future.successful(Html("")))
 
       val application = applicationBuilder(userAnswers = Some(emptyUserAnswers)).build()
-      val request = FakeRequest(POST, protectorTypeRoute).withFormUrlEncodedBody(("value", "invalid value"))
-      val boundForm = form.bind(Map("value" -> "invalid value"))
+      val request = FakeRequest(POST, doYouKnowProtectorDateOfBirthRoute).withFormUrlEncodedBody(("value", ""))
+      val boundForm = form.bind(Map("value" -> ""))
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])
       val jsonCaptor = ArgumentCaptor.forClass(classOf[JsObject])
 
@@ -154,36 +154,37 @@ class ProtectorTypeControllerSpec extends SpecBase with MockitoSugar with Nunjuc
       val expectedJson = Json.obj(
         "form"   -> boundForm,
         "mode"   -> NormalMode,
-        "radios" -> ProtectorType.radios(boundForm)
+        "radios" -> Radios.yesNo(boundForm("value"))
       )
 
-      templateCaptor.getValue mustEqual "protectorType.njk"
+      templateCaptor.getValue mustEqual "doYouKnowProtectorDateOfBirth.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
     }
 
-   /* "must redirect to Session Expired for a GET if no existing data is found" in {
+    "must redirect to Session Expired for a GET if no existing data is found" in {
 
       val application = applicationBuilder(userAnswers = None).build()
 
-      val request = FakeRequest(GET, protectorTypeRoute)
+      val request = FakeRequest(GET, doYouKnowProtectorDateOfBirthRoute)
 
       val result = route(application, request).value
 
       status(result) mustEqual SEE_OTHER
+
       redirectLocation(result).value mustEqual routes.SessionExpiredController.onPageLoad().url
 
       application.stop()
-    }*/
+    }
 
-/*    "must redirect to Session Expired for a POST if no existing data is found" in {
+    "must redirect to Session Expired for a POST if no existing data is found" in {
 
       val application = applicationBuilder(userAnswers = None).build()
 
       val request =
-        FakeRequest(POST, protectorTypeRoute)
-          .withFormUrlEncodedBody(("value", ProtectorType.values.head.toString))
+        FakeRequest(POST, doYouKnowProtectorDateOfBirthRoute)
+          .withFormUrlEncodedBody(("value", "true"))
 
       val result = route(application, request).value
 
@@ -192,6 +193,6 @@ class ProtectorTypeControllerSpec extends SpecBase with MockitoSugar with Nunjuc
       redirectLocation(result).value mustEqual routes.SessionExpiredController.onPageLoad().url
 
       application.stop()
-    }*/
+    }
   }
 }

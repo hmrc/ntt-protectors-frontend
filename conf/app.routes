@@ -23,3 +23,8 @@ GET        /protectorsName                        controllers.ProtectorsNameCont
 POST       /protectorsName                        controllers.ProtectorsNameController.onSubmit(mode: Mode = NormalMode)
 GET        /changeProtectorsName                  controllers.ProtectorsNameController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeProtectorsName                  controllers.ProtectorsNameController.onSubmit(mode: Mode = CheckMode)
+
+GET        /doYouKnowProtectorDateOfBirth                        controllers.DoYouKnowProtectorDateOfBirthController.onPageLoad(mode: Mode = NormalMode)
+POST       /doYouKnowProtectorDateOfBirth                        controllers.DoYouKnowProtectorDateOfBirthController.onSubmit(mode: Mode = NormalMode)
+GET        /changeDoYouKnowProtectorDateOfBirth                  controllers.DoYouKnowProtectorDateOfBirthController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeDoYouKnowProtectorDateOfBirth                  controllers.DoYouKnowProtectorDateOfBirthController.onSubmit(mode: Mode = CheckMode)

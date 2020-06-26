@@ -14,19 +14,17 @@
  * limitations under the License.
  */
 
-package generators
+package forms
 
-import org.scalacheck.Arbitrary
-import pages._
+import javax.inject.Inject
 
-trait PageGenerators {
+import forms.mappings.Mappings
+import play.api.data.Form
 
-  implicit lazy val arbitraryDoYouKnowProtectorDateOfBirthPage: Arbitrary[DoYouKnowProtectorDateOfBirthPage.type] =
-    Arbitrary(DoYouKnowProtectorDateOfBirthPage)
+class DoYouKnowProtectorDateOfBirthFormProvider @Inject() extends Mappings {
 
-  implicit lazy val arbitraryProtectorsNamePage: Arbitrary[ProtectorsNamePage.type] =
-    Arbitrary(ProtectorsNamePage)
-
-  implicit lazy val arbitraryProtectorTypePage: Arbitrary[ProtectorTypePage.type] =
-    Arbitrary(ProtectorTypePage)
+  def apply(): Form[Boolean] =
+    Form(
+      "value" -> boolean("doYouKnowProtectorDateOfBirth.error.required")
+    )
 }

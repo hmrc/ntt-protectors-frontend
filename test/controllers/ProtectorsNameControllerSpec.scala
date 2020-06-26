@@ -51,7 +51,8 @@ class ProtectorsNameControllerSpec extends SpecBase with MockitoSugar with Nunju
     Json.obj(
       ProtectorsNamePage.toString -> Json.obj(
         "FirstName" -> "value 1",
-        "MiddleName" -> "value 2"
+        "MiddleName" -> "value 2",
+        "LastName" -> "value 3"
       )
     )
   )
@@ -104,7 +105,8 @@ class ProtectorsNameControllerSpec extends SpecBase with MockitoSugar with Nunju
       val filledForm = form.bind(
         Map(
           "FirstName" -> "value 1",
-          "MiddleName" -> "value 2"
+          "MiddleName" -> "value 2",
+          "LastName" -> "value 3"
         )
       )
 
@@ -136,7 +138,35 @@ class ProtectorsNameControllerSpec extends SpecBase with MockitoSugar with Nunju
 
       val request =
         FakeRequest(POST, protectorsNameRoute)
-          .withFormUrlEncodedBody(("FirstName", "value 1"), ("MiddleName", "value 2"))
+          .withFormUrlEncodedBody(("FirstName", "value 1"), ("MiddleName", "value 2"), ("LastName", "value 3"))
+
+      val result = route(application, request).value
+
+      status(result) mustEqual SEE_OTHER
+
+      redirectLocation(result).value mustEqual onwardRoute.url
+
+      application.stop()
+    }
+
+    "must redirect to the next page when valid data without Middle Name is submitted" in {
+
+      val mockSessionRepository = mock[SessionRepository]
+
+      when(mockSessionRepository.set(any())) thenReturn Future.successful(true)
+
+      val application =
+        applicationBuilder(userAnswers = Some(emptyUserAnswers))
+          .overrides(
+            bind[Navigator].toInstance(new FakeNavigator(onwardRoute)),
+            bind[SessionRepository].toInstance(mockSessionRepository)
+          )
+          .build()
+
+
+      val request =
+        FakeRequest(POST, protectorsNameRoute)
+          .withFormUrlEncodedBody(("FirstName", "value 1"), ("LastName", "value 3"))
 
       val result = route(application, request).value
 
@@ -195,7 +225,7 @@ class ProtectorsNameControllerSpec extends SpecBase with MockitoSugar with Nunju
 
       val request =
         FakeRequest(POST, protectorsNameRoute)
-          .withFormUrlEncodedBody(("FirstName", "value 1"), ("MiddleName", "value 2"))
+          .withFormUrlEncodedBody(("FirstName", "value 1"), ("MiddleName", "value 2"), ("LastName", "value 3"))
 
       val result = route(application, request).value
 

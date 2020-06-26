@@ -55,6 +55,16 @@
             errorMessage: form.MiddleName.error
           }) }}
 
+        {{ govukInput({
+          label: {
+            text: messages('protectorsName.LastName')
+          },
+          id: "LastName",
+          name: "LastName",
+          value: form.LastName.value,
+          errorMessage: form.LastName.error
+        }) }}
+
           {{ govukButton({
             text: messages("site.continue")
           }) }}

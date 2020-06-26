@@ -26,8 +26,9 @@ trait ModelGenerators {
     Arbitrary {
       for {
         FirstName <- arbitrary[String]
-        MiddleName <- arbitrary[String]
-      } yield ProtectorsName(FirstName, MiddleName)
+        MiddleName <- arbitrary[Option[String]]
+        LastName <- arbitrary[String]
+      } yield ProtectorsName(FirstName, MiddleName, LastName)
     }
 
   implicit lazy val arbitraryProtectorType: Arbitrary[ProtectorType] =

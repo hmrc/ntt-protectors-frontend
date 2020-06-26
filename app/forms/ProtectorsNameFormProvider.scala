@@ -29,8 +29,10 @@ class ProtectorsNameFormProvider @Inject() extends Mappings {
      mapping(
       "FirstName" -> text("protectorsName.error.FirstName.required")
         .verifying(maxLength(100, "protectorsName.error.FirstName.length")),
-      "MiddleName" -> text("protectorsName.error.MiddleName.required")
-        .verifying(maxLength(100, "protectorsName.error.MiddleName.length"))
+      "MiddleName" -> optional(text("protectorsName.error.MiddleName.required")
+        .verifying(maxLength(100, "protectorsName.error.MiddleName.length"))),
+       "LastName" -> text("protectorsName.error.LastName.required")
+         .verifying(maxLength(100, "protectorsName.error.LastName.length"))
     )(ProtectorsName.apply)(ProtectorsName.unapply)
    )
  }

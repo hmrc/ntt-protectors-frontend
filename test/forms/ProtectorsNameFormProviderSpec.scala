@@ -69,6 +69,27 @@ class ProtectorsNameFormProviderSpec extends StringFieldBehaviours {
       maxLength = maxLength,
       lengthError = FormError(fieldName, lengthKey, Seq(maxLength))
     )
+  }
+
+  ".LastName" - {
+
+    val fieldName = "LastName"
+    val requiredKey = "protectorsName.error.LastName.required"
+    val lengthKey = "protectorsName.error.LastName.length"
+    val maxLength = 100
+
+    behave like fieldThatBindsValidData(
+      form,
+      fieldName,
+      stringsWithMaxLength(maxLength)
+    )
+
+    behave like fieldWithMaxLength(
+      form,
+      fieldName,
+      maxLength = maxLength,
+      lengthError = FormError(fieldName, lengthKey, Seq(maxLength))
+    )
 
     behave like mandatoryField(
       form,

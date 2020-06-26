@@ -28,3 +28,13 @@ GET        /doYouKnowProtectorDateOfBirth                        controllers.DoY
 POST       /doYouKnowProtectorDateOfBirth                        controllers.DoYouKnowProtectorDateOfBirthController.onSubmit(mode: Mode = NormalMode)
 GET        /changeDoYouKnowProtectorDateOfBirth                  controllers.DoYouKnowProtectorDateOfBirthController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeDoYouKnowProtectorDateOfBirth                  controllers.DoYouKnowProtectorDateOfBirthController.onSubmit(mode: Mode = CheckMode)
+
+GET        /doYouKnowTheirNationality                        controllers.DoYouKnowTheirNationalityController.onPageLoad(mode: Mode = NormalMode)
+POST       /doYouKnowTheirNationality                        controllers.DoYouKnowTheirNationalityController.onSubmit(mode: Mode = NormalMode)
+GET        /changeDoYouKnowTheirNationality                  controllers.DoYouKnowTheirNationalityController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeDoYouKnowTheirNationality                  controllers.DoYouKnowTheirNationalityController.onSubmit(mode: Mode = CheckMode)
+
+GET        /protectorDateOfBirth                  controllers.ProtectorDateOfBirthController.onPageLoad(mode: Mode = NormalMode)
+POST       /protectorDateOfBirth                  controllers.ProtectorDateOfBirthController.onSubmit(mode: Mode = NormalMode)
+GET        /changeProtectorDateOfBirth                        controllers.ProtectorDateOfBirthController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeProtectorDateOfBirth                        controllers.ProtectorDateOfBirthController.onSubmit(mode: Mode = CheckMode)

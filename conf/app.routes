@@ -43,3 +43,8 @@ GET        /protectorNationality                        controllers.ProtectorNat
 POST       /protectorNationality                        controllers.ProtectorNationalityController.onSubmit(mode: Mode = NormalMode)
 GET        /changeProtectorNationality                  controllers.ProtectorNationalityController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeProtectorNationality                  controllers.ProtectorNationalityController.onSubmit(mode: Mode = CheckMode)
+
+GET        /protectorCountrySameAsResidence                        controllers.ProtectorCountrySameAsResidenceController.onPageLoad(mode: Mode = NormalMode)
+POST       /protectorCountrySameAsResidence                        controllers.ProtectorCountrySameAsResidenceController.onSubmit(mode: Mode = NormalMode)
+GET        /changeProtectorCountrySameAsResidence                  controllers.ProtectorCountrySameAsResidenceController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeProtectorCountrySameAsResidence                  controllers.ProtectorCountrySameAsResidenceController.onSubmit(mode: Mode = CheckMode)

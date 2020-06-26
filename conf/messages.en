@@ -167,8 +167,13 @@ protectorDateOfBirth.error.required.two = The protectorDateOfBirth must include 
 protectorDateOfBirth.error.required = The protectorDateOfBirth must include {0}
 protectorDateOfBirth.error.invalid = Enter a real ProtectorDateOfBirth
 
-protectorNationality.title = protectorNationality
+protectorNationality.title = What is their country of nationality?
 protectorNationality.heading = protectorNationality
 protectorNationality.checkYourAnswersLabel = protectorNationality
 protectorNationality.error.required = Enter protectorNationality
 protectorNationality.error.length = ProtectorNationality must be 100 characters or less
+
+protectorCountrySameAsResidence.title = Is their country the same as their residency?
+protectorCountrySameAsResidence.heading = protectorCountrySameAsResidence
+protectorCountrySameAsResidence.checkYourAnswersLabel = protectorCountrySameAsResidence
+protectorCountrySameAsResidence.error.required = Select yes if protectorCountrySameAsResidence

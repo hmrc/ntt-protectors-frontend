@@ -56,10 +56,10 @@ trait UserAnswersEntryGenerators extends PageGenerators with ModelGenerators {
       } yield (page, value)
     }
 
-  implicit lazy val arbitraryProtectorDateOfBirthUserAnswersEntry: Arbitrary[(ProtectorDateOfBirthPage.type, JsValue)] =
+  implicit lazy val arbitraryProtectorDateOfBirthUserAnswersEntry: Arbitrary[(WhatIsProtectorDateOfBirthPage.type, JsValue)] =
     Arbitrary {
       for {
-        page  <- arbitrary[ProtectorDateOfBirthPage.type]
+        page  <- arbitrary[WhatIsProtectorDateOfBirthPage.type]
         value <- arbitrary[Int].map(Json.toJson(_))
       } yield (page, value)
     }

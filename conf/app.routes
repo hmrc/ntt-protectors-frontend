@@ -34,10 +34,10 @@ POST       /doYouKnowTheirNationality                        controllers.DoYouKn
 GET        /changeDoYouKnowTheirNationality                  controllers.DoYouKnowTheirNationalityController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeDoYouKnowTheirNationality                  controllers.DoYouKnowTheirNationalityController.onSubmit(mode: Mode = CheckMode)
 
-GET        /protectorDateOfBirth                  controllers.ProtectorDateOfBirthController.onPageLoad(mode: Mode = NormalMode)
-POST       /protectorDateOfBirth                  controllers.ProtectorDateOfBirthController.onSubmit(mode: Mode = NormalMode)
-GET        /changeProtectorDateOfBirth                        controllers.ProtectorDateOfBirthController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeProtectorDateOfBirth                        controllers.ProtectorDateOfBirthController.onSubmit(mode: Mode = CheckMode)
+GET        /protectorDateOfBirth                  controllers.WhatIsProtectorDateOfBirthController.onPageLoad(mode: Mode = NormalMode)
+POST       /protectorDateOfBirth                  controllers.WhatIsProtectorDateOfBirthController.onSubmit(mode: Mode = NormalMode)
+GET        /changeProtectorDateOfBirth                        controllers.WhatIsProtectorDateOfBirthController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeProtectorDateOfBirth                        controllers.WhatIsProtectorDateOfBirthController.onSubmit(mode: Mode = CheckMode)
 
 GET        /protectorNationality                        controllers.ProtectorNationalityController.onPageLoad(mode: Mode = NormalMode)
 POST       /protectorNationality                        controllers.ProtectorNationalityController.onSubmit(mode: Mode = NormalMode)

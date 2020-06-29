@@ -20,7 +20,7 @@ import java.time.LocalDate
 
 import play.api.libs.json.JsPath
 
-case object ProtectorDateOfBirthPage extends QuestionPage[LocalDate] {
+case object WhatIsProtectorDateOfBirthPage extends QuestionPage[LocalDate] {
 
   override def path: JsPath = JsPath \ toString
 

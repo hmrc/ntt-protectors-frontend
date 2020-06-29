@@ -16,8 +16,10 @@
 
 package controllers
 
+import java.time.{LocalDate, ZoneOffset}
+
 import base.SpecBase
-import forms.DoYouKnowProtectorDateOfBirthFormProvider
+import forms.ProtectorDateOfBirthFormProvider
 import matchers.JsonMatchers
 import models.{NormalMode, UserAnswers}
 import navigation.{FakeNavigator, Navigator}
@@ -25,28 +27,43 @@ import org.mockito.ArgumentCaptor
 import org.mockito.Matchers.any
 import org.mockito.Mockito.{times, verify, when}
 import org.scalatestplus.mockito.MockitoSugar
-import pages.DoYouKnowProtectorDateOfBirthPage
+import pages.WhatIsProtectorDateOfBirthPage
 import play.api.inject.bind
 import play.api.libs.json.{JsObject, Json}
-import play.api.mvc.Call
+import play.api.mvc.{AnyContentAsEmpty, AnyContentAsFormUrlEncoded, Call}
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import play.twirl.api.Html
 import repositories.SessionRepository
-import uk.gov.hmrc.viewmodels.{NunjucksSupport, Radios}
+import uk.gov.hmrc.viewmodels.{DateInput, NunjucksSupport}
 
 import scala.concurrent.Future
 
-class DoYouKnowProtectorDateOfBirthControllerSpec extends SpecBase with MockitoSugar with NunjucksSupport with JsonMatchers {
+class WhatIsProtectorDateOfBirthControllerSpec extends SpecBase with MockitoSugar with NunjucksSupport with JsonMatchers {
+
+  val formProvider = new ProtectorDateOfBirthFormProvider()
+  private def form = formProvider()
 
   def onwardRoute = Call("GET", "/foo")
 
-  val formProvider = new DoYouKnowProtectorDateOfBirthFormProvider()
-  val form = formProvider()
+  val validAnswer = LocalDate.now(ZoneOffset.UTC)
 
-  lazy val doYouKnowProtectorDateOfBirthRoute = routes.DoYouKnowProtectorDateOfBirthController.onPageLoad(NormalMode).url
+  lazy val protectorDateOfBirthRoute = routes.WhatIsProtectorDateOfBirthController.onPageLoad(NormalMode).url
 
-  "DoYouKnowProtectorDateOfBirth Controller" - {
+  override val emptyUserAnswers = UserAnswers(userAnswersId)
+
+  def getRequest(): FakeRequest[AnyContentAsEmpty.type] =
+    FakeRequest(GET, protectorDateOfBirthRoute)
+
+  def postRequest(): FakeRequest[AnyContentAsFormUrlEncoded] =
+    FakeRequest(POST, protectorDateOfBirthRoute)
+      .withFormUrlEncodedBody(
+        "value.day"   -> validAnswer.getDayOfMonth.toString,
+        "value.month" -> validAnswer.getMonthValue.toString,
+        "value.year"  -> validAnswer.getYear.toString
+      )
+
+  "ProtectorDateOfBirth Controller" - {
 
     "must return OK and the correct view for a GET" in {
 
@@ -54,23 +71,24 @@ class DoYouKnowProtectorDateOfBirthControllerSpec extends SpecBase with MockitoS
         .thenReturn(Future.successful(Html("")))
 
       val application = applicationBuilder(userAnswers = Some(emptyUserAnswers)).build()
-      val request = FakeRequest(GET, doYouKnowProtectorDateOfBirthRoute)
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])
       val jsonCaptor = ArgumentCaptor.forClass(classOf[JsObject])
 
-      val result = route(application, request).value
+      val result = route(application, getRequest).value
 
       status(result) mustEqual OK
 
       verify(mockRenderer, times(1)).render(templateCaptor.capture(), jsonCaptor.capture())(any())
 
+      val viewModel = DateInput.localDate(form("value"))
+
       val expectedJson = Json.obj(
-        "form"   -> form,
-        "mode"   -> NormalMode,
-        "radios" -> Radios.yesNo(form("value"))
+        "form" -> form,
+        "mode" -> NormalMode,
+        "date" -> viewModel
       )
 
-      templateCaptor.getValue mustEqual "doYouKnowProtectorDateOfBirth.njk"
+      templateCaptor.getValue mustEqual "whatIsProtectorDateOfBirth.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -81,27 +99,34 @@ class DoYouKnowProtectorDateOfBirthControllerSpec extends SpecBase with MockitoS
       when(mockRenderer.render(any(), any())(any()))
         .thenReturn(Future.successful(Html("")))
 
-      val userAnswers = UserAnswers(userAnswersId).set(DoYouKnowProtectorDateOfBirthPage, true).success.value
+      val userAnswers = UserAnswers(userAnswersId).set(WhatIsProtectorDateOfBirthPage, validAnswer).success.value
       val application = applicationBuilder(userAnswers = Some(userAnswers)).build()
-      val request = FakeRequest(GET, doYouKnowProtectorDateOfBirthRoute)
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])
       val jsonCaptor = ArgumentCaptor.forClass(classOf[JsObject])
 
-      val result = route(application, request).value
+      val result = route(application, getRequest).value
 
       status(result) mustEqual OK
 
       verify(mockRenderer, times(1)).render(templateCaptor.capture(), jsonCaptor.capture())(any())
 
-      val filledForm = form.bind(Map("value" -> "true"))
-
-      val expectedJson = Json.obj(
-        "form"   -> filledForm,
-        "mode"   -> NormalMode,
-        "radios" -> Radios.yesNo(filledForm("value"))
+      val filledForm = form.bind(
+        Map(
+          "value.day"   -> validAnswer.getDayOfMonth.toString,
+          "value.month" -> validAnswer.getMonthValue.toString,
+          "value.year"  -> validAnswer.getYear.toString
+        )
       )
 
-      templateCaptor.getValue mustEqual "doYouKnowProtectorDateOfBirth.njk"
+      val viewModel = DateInput.localDate(filledForm("value"))
+
+      val expectedJson = Json.obj(
+        "form" -> filledForm,
+        "mode" -> NormalMode,
+        "date" -> viewModel
+      )
+
+      templateCaptor.getValue mustEqual "whatIsProtectorDateOfBirth.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -121,11 +146,7 @@ class DoYouKnowProtectorDateOfBirthControllerSpec extends SpecBase with MockitoS
           )
           .build()
 
-      val request =
-        FakeRequest(POST, doYouKnowProtectorDateOfBirthRoute)
-          .withFormUrlEncodedBody(("value", "true"))
-
-      val result = route(application, request).value
+      val result = route(application, postRequest).value
 
       status(result) mustEqual SEE_OTHER
 
@@ -140,8 +161,8 @@ class DoYouKnowProtectorDateOfBirthControllerSpec extends SpecBase with MockitoS
         .thenReturn(Future.successful(Html("")))
 
       val application = applicationBuilder(userAnswers = Some(emptyUserAnswers)).build()
-      val request = FakeRequest(POST, doYouKnowProtectorDateOfBirthRoute).withFormUrlEncodedBody(("value", ""))
-      val boundForm = form.bind(Map("value" -> ""))
+      val request = FakeRequest(POST, protectorDateOfBirthRoute).withFormUrlEncodedBody(("value", "invalid value"))
+      val boundForm = form.bind(Map("value" -> "invalid value"))
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])
       val jsonCaptor = ArgumentCaptor.forClass(classOf[JsObject])
 
@@ -151,13 +172,15 @@ class DoYouKnowProtectorDateOfBirthControllerSpec extends SpecBase with MockitoS
 
       verify(mockRenderer, times(1)).render(templateCaptor.capture(), jsonCaptor.capture())(any())
 
+      val viewModel = DateInput.localDate(boundForm("value"))
+
       val expectedJson = Json.obj(
-        "form"   -> boundForm,
-        "mode"   -> NormalMode,
-        "radios" -> Radios.yesNo(boundForm("value"))
+        "form" -> boundForm,
+        "mode" -> NormalMode,
+        "date" -> viewModel
       )
 
-      templateCaptor.getValue mustEqual "doYouKnowProtectorDateOfBirth.njk"
+      templateCaptor.getValue mustEqual "whatIsProtectorDateOfBirth.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -167,12 +190,9 @@ class DoYouKnowProtectorDateOfBirthControllerSpec extends SpecBase with MockitoS
 
       val application = applicationBuilder(userAnswers = None).build()
 
-      val request = FakeRequest(GET, doYouKnowProtectorDateOfBirthRoute)
-
-      val result = route(application, request).value
+      val result = route(application, getRequest).value
 
       status(result) mustEqual SEE_OTHER
-
       redirectLocation(result).value mustEqual routes.SessionExpiredController.onPageLoad().url
 
       application.stop()
@@ -182,11 +202,7 @@ class DoYouKnowProtectorDateOfBirthControllerSpec extends SpecBase with MockitoS
 
       val application = applicationBuilder(userAnswers = None).build()
 
-      val request =
-        FakeRequest(POST, doYouKnowProtectorDateOfBirthRoute)
-          .withFormUrlEncodedBody(("value", "true"))
-
-      val result = route(application, request).value
+      val result = route(application, postRequest).value
 
       status(result) mustEqual SEE_OTHER
 

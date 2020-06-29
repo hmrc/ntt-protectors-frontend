@@ -21,7 +21,7 @@ import forms.ProtectorDateOfBirthFormProvider
 import javax.inject.Inject
 import models.Mode
 import navigation.Navigator
-import pages.ProtectorDateOfBirthPage
+import pages.WhatIsProtectorDateOfBirthPage
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.libs.json.Json
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
@@ -32,7 +32,7 @@ import uk.gov.hmrc.viewmodels.{DateInput, NunjucksSupport}
 
 import scala.concurrent.{ExecutionContext, Future}
 
-class ProtectorDateOfBirthController @Inject()(
+class WhatIsProtectorDateOfBirthController @Inject()(
     override val messagesApi: MessagesApi,
     sessionRepository: SessionRepository,
     navigator: Navigator,
@@ -49,7 +49,7 @@ class ProtectorDateOfBirthController @Inject()(
   def onPageLoad(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData).async {
     implicit request =>
 
-      val preparedForm = request.userAnswers.get(ProtectorDateOfBirthPage) match {
+      val preparedForm = request.userAnswers.get(WhatIsProtectorDateOfBirthPage) match {
         case Some(value) => form.fill(value)
         case None        => form
       }
@@ -62,7 +62,7 @@ class ProtectorDateOfBirthController @Inject()(
         "date" -> viewModel
       )
 
-      renderer.render("protectorDateOfBirth.njk", json).map(Ok(_))
+      renderer.render("whatIsProtectorDateOfBirth.njk", json).map(Ok(_))
   }
 
   def onSubmit(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData).async {
@@ -79,13 +79,13 @@ class ProtectorDateOfBirthController @Inject()(
             "date" -> viewModel
           )
 
-          renderer.render("protectorDateOfBirth.njk", json).map(BadRequest(_))
+          renderer.render("whatIsProtectorDateOfBirth.njk", json).map(BadRequest(_))
         },
         value =>
           for {
-            updatedAnswers <- Future.fromTry(request.userAnswers.set(ProtectorDateOfBirthPage, value))
+            updatedAnswers <- Future.fromTry(request.userAnswers.set(WhatIsProtectorDateOfBirthPage, value))
             _              <- sessionRepository.set(updatedAnswers)
-          } yield Redirect(navigator.nextPage(ProtectorDateOfBirthPage, mode, updatedAnswers))
+          } yield Redirect(navigator.nextPage(WhatIsProtectorDateOfBirthPage, mode, updatedAnswers))
       )
   }
 }

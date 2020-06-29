@@ -154,12 +154,12 @@ doYouKnowProtectorDateOfBirth.checkYourAnswersLabel = John Doe's date of birth
 doYouKnowProtectorDateOfBirth.error.required = Select yes if know John Doe's date of birth
 
 doYouKnowTheirNationality.title = Do you know their Nationality?
-doYouKnowTheirNationality.heading = doYouKnowTheirNationality
+doYouKnowTheirNationality.heading = Do you know their Nationality?
 doYouKnowTheirNationality.checkYourAnswersLabel = doYouKnowTheirNationality
 doYouKnowTheirNationality.error.required = Select yes if you know their Nationality
 
-protectorDateOfBirth.title = ProtectorDateOfBirth
-protectorDateOfBirth.heading = ProtectorDateOfBirth
+protectorDateOfBirth.title = What Is Protector Date Of Birth?
+protectorDateOfBirth.heading = What Is Protector Date Of Birth?
 protectorDateOfBirth.hint = For example, 12 11 2007
 protectorDateOfBirth.checkYourAnswersLabel = ProtectorDateOfBirth
 protectorDateOfBirth.error.required.all = Enter the protectorDateOfBirth

@@ -33,8 +33,8 @@ trait PageGenerators {
   implicit lazy val arbitraryProtectorNationalityPage: Arbitrary[ProtectorNationalityPage.type] =
     Arbitrary(ProtectorNationalityPage)
 
-  implicit lazy val arbitraryProtectorDateOfBirthPage: Arbitrary[ProtectorDateOfBirthPage.type] =
-    Arbitrary(ProtectorDateOfBirthPage)
+  implicit lazy val arbitraryProtectorDateOfBirthPage: Arbitrary[WhatIsProtectorDateOfBirthPage.type] =
+    Arbitrary(WhatIsProtectorDateOfBirthPage)
 
   implicit lazy val arbitraryDoYouKnowTheirNationalityPage: Arbitrary[DoYouKnowTheirNationalityPage.type] =
     Arbitrary(DoYouKnowTheirNationalityPage)

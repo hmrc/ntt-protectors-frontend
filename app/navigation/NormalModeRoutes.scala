@@ -18,15 +18,15 @@ package navigation
 
 import controllers.routes
 import models.{NormalMode, UserAnswers}
-import pages.{DoYouKnowProtectorDateOfBirthPage, DoYouKnowTheirCountryOfResidencyPage, DoYouKnowTheirNationalityPage, Page, ProtectorCountrySameAsResidencePage, ProtectorDateOfBirthPage, ProtectorNationalityPage, ProtectorTypePage, WhatIsTheProtectorsNamePage}
+import pages.{DoYouKnowProtectorDateOfBirthPage, DoYouKnowTheirCountryOfResidencyPage, DoYouKnowTheirNationalityPage, Page, ProtectorCountrySameAsResidencePage, WhatIsProtectorDateOfBirthPage, ProtectorNationalityPage, ProtectorTypePage, WhatIsTheProtectorsNamePage}
 import play.api.mvc.Call
 
 object NormalModeRoutes {
   val normalRoutes: Page => UserAnswers => Call = {
     case ProtectorTypePage => _ => routes.WhatIsTheProtectorsNameController.onPageLoad(NormalMode)
     case WhatIsTheProtectorsNamePage => _ => routes.DoYouKnowProtectorDateOfBirthController.onPageLoad(NormalMode)
-    case DoYouKnowProtectorDateOfBirthPage => _ => routes.ProtectorDateOfBirthController.onPageLoad(NormalMode)
-    case ProtectorDateOfBirthPage => _ => routes.DoYouKnowTheirNationalityController.onPageLoad(NormalMode)
+    case DoYouKnowProtectorDateOfBirthPage => _ => routes.WhatIsProtectorDateOfBirthController.onPageLoad(NormalMode)
+    case WhatIsProtectorDateOfBirthPage => _ => routes.DoYouKnowTheirNationalityController.onPageLoad(NormalMode)
     case DoYouKnowTheirNationalityPage => _ => routes.ProtectorNationalityController.onPageLoad(NormalMode)
     case ProtectorNationalityPage => _ => routes.ProtectorCountrySameAsResidenceController.onPageLoad(NormalMode)
     case ProtectorCountrySameAsResidencePage => _ => routes.DoYouKnowTheirCountryOfResidencyController.onPageLoad(NormalMode)

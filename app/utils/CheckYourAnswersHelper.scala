@@ -89,7 +89,7 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messag
       )
   }
 
-  def protectorDateOfBirth: Option[Row] = userAnswers.get(ProtectorDateOfBirthPage) map {
+  def protectorDateOfBirth: Option[Row] = userAnswers.get(WhatIsProtectorDateOfBirthPage) map {
     answer =>
       Row(
         key     = Key(msg"protectorDateOfBirth.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
@@ -97,7 +97,7 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messag
         actions = List(
           Action(
             content            = msg"site.edit",
-            href               = routes.ProtectorDateOfBirthController.onPageLoad(CheckMode).url,
+            href               = routes.WhatIsProtectorDateOfBirthController.onPageLoad(CheckMode).url,
             visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"protectorDateOfBirth.checkYourAnswersLabel"))
           )
         )

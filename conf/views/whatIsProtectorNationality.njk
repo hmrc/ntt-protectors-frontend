@@ -31,17 +31,8 @@
 
           {{ csrf() | safe }}
 
-          {{ govukInput({
-            label: {
-              text: messages('protectorNationality.title'),
-              isPageHeading: true,
-              classes: "govuk-label--xl"
-            },
-            id: "value",
-            name: "value",
-            value: form.value.value,
-            errorMessage: form.value.error
-          }) }}
+          <label class="govuk-label govuk-label--xl" for="country-autocomplete">{{messages('protectorNationality.title')}}</label>
+          <div id="country-autocomplete"></div>
 
           {{ govukButton({
             text: messages("site.continue")

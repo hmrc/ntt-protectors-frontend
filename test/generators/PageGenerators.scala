@@ -21,6 +21,9 @@ import pages._
 
 trait PageGenerators {
 
+  implicit lazy val arbitraryWhatIsTheirCountryOfResidencyPage: Arbitrary[WhatIsTheirCountryOfResidencyPage.type] =
+    Arbitrary(WhatIsTheirCountryOfResidencyPage)
+
   implicit lazy val arbitraryDoYouKnowTheirCountryOfResidencyPage: Arbitrary[DoYouKnowTheirCountryOfResidencyPage.type] =
     Arbitrary(DoYouKnowTheirCountryOfResidencyPage)
 

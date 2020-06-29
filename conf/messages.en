@@ -182,3 +182,9 @@ doYouKnowTheirCountryOfResidency.title = doYouKnowTheirCountryOfResidency
 doYouKnowTheirCountryOfResidency.heading = doYouKnowTheirCountryOfResidency
 doYouKnowTheirCountryOfResidency.checkYourAnswersLabel = doYouKnowTheirCountryOfResidency
 doYouKnowTheirCountryOfResidency.error.required = Select yes if doYouKnowTheirCountryOfResidency
+
+whatIsTheirCountryOfResidency.title = whatIsTheirCountryOfResidency
+whatIsTheirCountryOfResidency.heading = whatIsTheirCountryOfResidency
+whatIsTheirCountryOfResidency.checkYourAnswersLabel = whatIsTheirCountryOfResidency
+whatIsTheirCountryOfResidency.error.required = Enter whatIsTheirCountryOfResidency
+whatIsTheirCountryOfResidency.error.length = WhatIsTheirCountryOfResidency must be 100 characters or less

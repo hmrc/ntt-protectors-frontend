@@ -42,7 +42,17 @@ class CheckYourAnswersController @Inject()(
 
       val helper = new CheckYourAnswersHelper(request.userAnswers)
 
-      val answers: Seq[SummaryList.Row] = Seq()
+      val answers: Seq[SummaryList.Row] = Seq(
+        helper.protectorType,
+        helper.protectorsName,
+        helper.doYouKnowProtectorDateOfBirth,
+        helper.protectorDateOfBirth,
+        helper.doYouKnowTheirNationality,
+        helper.protectorNationality,
+        helper.protectorCountrySameAsResidence,
+        helper.doYouKnowTheirCountryOfResidency,
+        helper.whatIsTheirCountryOfResidency
+      ).flatten
 
       renderer.render(
         "check-your-answers.njk",

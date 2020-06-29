@@ -58,3 +58,8 @@ GET        /whatIsTheirCountryOfResidency                        controllers.Wha
 POST       /whatIsTheirCountryOfResidency                        controllers.WhatIsTheirCountryOfResidencyController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhatIsTheirCountryOfResidency                  controllers.WhatIsTheirCountryOfResidencyController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhatIsTheirCountryOfResidency                  controllers.WhatIsTheirCountryOfResidencyController.onSubmit(mode: Mode = CheckMode)
+
+GET        /whatIsTheNameOfTheCompany                        controllers.WhatIsTheNameOfTheCompanyController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatIsTheNameOfTheCompany                        controllers.WhatIsTheNameOfTheCompanyController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatIsTheNameOfTheCompany                  controllers.WhatIsTheNameOfTheCompanyController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatIsTheNameOfTheCompany                  controllers.WhatIsTheNameOfTheCompanyController.onSubmit(mode: Mode = CheckMode)

@@ -188,3 +188,9 @@ whatIsTheirCountryOfResidency.heading = whatIsTheirCountryOfResidency
 whatIsTheirCountryOfResidency.checkYourAnswersLabel = whatIsTheirCountryOfResidency
 whatIsTheirCountryOfResidency.error.required = Enter whatIsTheirCountryOfResidency
 whatIsTheirCountryOfResidency.error.length = WhatIsTheirCountryOfResidency must be 100 characters or less
+
+whatIsTheNameOfTheCompany.title = whatIsTheNameOfTheCompany
+whatIsTheNameOfTheCompany.heading = whatIsTheNameOfTheCompany
+whatIsTheNameOfTheCompany.checkYourAnswersLabel = whatIsTheNameOfTheCompany
+whatIsTheNameOfTheCompany.error.required = Enter whatIsTheNameOfTheCompany
+whatIsTheNameOfTheCompany.error.length = WhatIsTheNameOfTheCompany must be 100 characters or less

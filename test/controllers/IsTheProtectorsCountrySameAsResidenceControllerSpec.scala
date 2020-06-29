@@ -25,7 +25,7 @@ import org.mockito.ArgumentCaptor
 import org.mockito.Matchers.any
 import org.mockito.Mockito.{times, verify, when}
 import org.scalatestplus.mockito.MockitoSugar
-import pages.ProtectorCountrySameAsResidencePage
+import pages.IsTheProtectorsCountrySameAsResidencePage
 import play.api.inject.bind
 import play.api.libs.json.{JsObject, Json}
 import play.api.mvc.Call
@@ -37,14 +37,14 @@ import uk.gov.hmrc.viewmodels.{NunjucksSupport, Radios}
 
 import scala.concurrent.Future
 
-class ProtectorCountrySameAsResidenceControllerSpec extends SpecBase with MockitoSugar with NunjucksSupport with JsonMatchers {
+class IsTheProtectorsCountrySameAsResidenceControllerSpec extends SpecBase with MockitoSugar with NunjucksSupport with JsonMatchers {
 
   def onwardRoute = Call("GET", "/foo")
 
   val formProvider = new ProtectorCountrySameAsResidenceFormProvider()
   val form = formProvider()
 
-  lazy val protectorCountrySameAsResidenceRoute = routes.ProtectorCountrySameAsResidenceController.onPageLoad(NormalMode).url
+  lazy val protectorCountrySameAsResidenceRoute = routes.IsTheProtectorsCountrySameAsResidenceController.onPageLoad(NormalMode).url
 
   "ProtectorCountrySameAsResidence Controller" - {
 
@@ -70,7 +70,7 @@ class ProtectorCountrySameAsResidenceControllerSpec extends SpecBase with Mockit
         "radios" -> Radios.yesNo(form("value"))
       )
 
-      templateCaptor.getValue mustEqual "protectorCountrySameAsResidence.njk"
+      templateCaptor.getValue mustEqual "isTheProtectorsCountrySameAsResidence.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -81,7 +81,7 @@ class ProtectorCountrySameAsResidenceControllerSpec extends SpecBase with Mockit
       when(mockRenderer.render(any(), any())(any()))
         .thenReturn(Future.successful(Html("")))
 
-      val userAnswers = UserAnswers(userAnswersId).set(ProtectorCountrySameAsResidencePage, true).success.value
+      val userAnswers = UserAnswers(userAnswersId).set(IsTheProtectorsCountrySameAsResidencePage, true).success.value
       val application = applicationBuilder(userAnswers = Some(userAnswers)).build()
       val request = FakeRequest(GET, protectorCountrySameAsResidenceRoute)
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])
@@ -101,7 +101,7 @@ class ProtectorCountrySameAsResidenceControllerSpec extends SpecBase with Mockit
         "radios" -> Radios.yesNo(filledForm("value"))
       )
 
-      templateCaptor.getValue mustEqual "protectorCountrySameAsResidence.njk"
+      templateCaptor.getValue mustEqual "isTheProtectorsCountrySameAsResidence.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -157,7 +157,7 @@ class ProtectorCountrySameAsResidenceControllerSpec extends SpecBase with Mockit
         "radios" -> Radios.yesNo(boundForm("value"))
       )
 
-      templateCaptor.getValue mustEqual "protectorCountrySameAsResidence.njk"
+      templateCaptor.getValue mustEqual "isTheProtectorsCountrySameAsResidence.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()

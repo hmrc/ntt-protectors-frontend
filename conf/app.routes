@@ -39,15 +39,15 @@ POST       /protectorDateOfBirth                  controllers.WhatIsProtectorDat
 GET        /changeProtectorDateOfBirth                        controllers.WhatIsProtectorDateOfBirthController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeProtectorDateOfBirth                        controllers.WhatIsProtectorDateOfBirthController.onSubmit(mode: Mode = CheckMode)
 
-GET        /protectorNationality                        controllers.ProtectorNationalityController.onPageLoad(mode: Mode = NormalMode)
-POST       /protectorNationality                        controllers.ProtectorNationalityController.onSubmit(mode: Mode = NormalMode)
-GET        /changeProtectorNationality                  controllers.ProtectorNationalityController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeProtectorNationality                  controllers.ProtectorNationalityController.onSubmit(mode: Mode = CheckMode)
+GET        /protectorNationality                        controllers.WhatIsProtectorsNationalityController.onPageLoad(mode: Mode = NormalMode)
+POST       /protectorNationality                        controllers.WhatIsProtectorsNationalityController.onSubmit(mode: Mode = NormalMode)
+GET        /changeProtectorNationality                  controllers.WhatIsProtectorsNationalityController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeProtectorNationality                  controllers.WhatIsProtectorsNationalityController.onSubmit(mode: Mode = CheckMode)
 
-GET        /protectorCountrySameAsResidence                        controllers.ProtectorCountrySameAsResidenceController.onPageLoad(mode: Mode = NormalMode)
-POST       /protectorCountrySameAsResidence                        controllers.ProtectorCountrySameAsResidenceController.onSubmit(mode: Mode = NormalMode)
-GET        /changeProtectorCountrySameAsResidence                  controllers.ProtectorCountrySameAsResidenceController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeProtectorCountrySameAsResidence                  controllers.ProtectorCountrySameAsResidenceController.onSubmit(mode: Mode = CheckMode)
+GET        /protectorCountrySameAsResidence                        controllers.IsTheProtectorsCountrySameAsResidenceController.onPageLoad(mode: Mode = NormalMode)
+POST       /protectorCountrySameAsResidence                        controllers.IsTheProtectorsCountrySameAsResidenceController.onSubmit(mode: Mode = NormalMode)
+GET        /changeProtectorCountrySameAsResidence                  controllers.IsTheProtectorsCountrySameAsResidenceController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeProtectorCountrySameAsResidence                  controllers.IsTheProtectorsCountrySameAsResidenceController.onSubmit(mode: Mode = CheckMode)
 
 GET        /doYouKnowTheirCountryOfResidency                        controllers.DoYouKnowTheirCountryOfResidencyController.onPageLoad(mode: Mode = NormalMode)
 POST       /doYouKnowTheirCountryOfResidency                        controllers.DoYouKnowTheirCountryOfResidencyController.onSubmit(mode: Mode = NormalMode)

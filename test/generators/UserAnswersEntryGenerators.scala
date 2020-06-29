@@ -40,18 +40,18 @@ trait UserAnswersEntryGenerators extends PageGenerators with ModelGenerators {
       } yield (page, value)
     }
 
-  implicit lazy val arbitraryProtectorCountrySameAsResidenceUserAnswersEntry: Arbitrary[(ProtectorCountrySameAsResidencePage.type, JsValue)] =
+  implicit lazy val arbitraryProtectorCountrySameAsResidenceUserAnswersEntry: Arbitrary[(IsTheProtectorsCountrySameAsResidencePage.type, JsValue)] =
     Arbitrary {
       for {
-        page  <- arbitrary[ProtectorCountrySameAsResidencePage.type]
+        page  <- arbitrary[IsTheProtectorsCountrySameAsResidencePage.type]
         value <- arbitrary[Boolean].map(Json.toJson(_))
       } yield (page, value)
     }
 
-  implicit lazy val arbitraryProtectorNationalityUserAnswersEntry: Arbitrary[(ProtectorNationalityPage.type, JsValue)] =
+  implicit lazy val arbitraryProtectorNationalityUserAnswersEntry: Arbitrary[(WhatIsProtectorNationalityPage.type, JsValue)] =
     Arbitrary {
       for {
-        page  <- arbitrary[ProtectorNationalityPage.type]
+        page  <- arbitrary[WhatIsProtectorNationalityPage.type]
         value <- arbitrary[String].suchThat(_.nonEmpty).map(Json.toJson(_))
       } yield (page, value)
     }

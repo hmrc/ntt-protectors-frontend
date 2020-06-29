@@ -25,7 +25,7 @@ import org.mockito.ArgumentCaptor
 import org.mockito.Matchers.any
 import org.mockito.Mockito.{times, verify, when}
 import org.scalatestplus.mockito.MockitoSugar
-import pages.ProtectorNationalityPage
+import pages.WhatIsProtectorNationalityPage
 import play.api.inject.bind
 import play.api.libs.json.{JsObject, JsString, Json}
 import play.api.mvc.Call
@@ -37,16 +37,16 @@ import uk.gov.hmrc.viewmodels.NunjucksSupport
 
 import scala.concurrent.Future
 
-class ProtectorNationalityControllerSpec extends SpecBase with MockitoSugar with NunjucksSupport with JsonMatchers {
+class WhatIsProtectorsNationalityControllerSpec extends SpecBase with MockitoSugar with NunjucksSupport with JsonMatchers {
 
   def onwardRoute = Call("GET", "/foo")
 
   val formProvider = new ProtectorNationalityFormProvider()
   val form = formProvider()
 
-  lazy val protectorNationalityRoute = routes.ProtectorNationalityController.onPageLoad(NormalMode).url
+  lazy val protectorNationalityRoute = routes.WhatIsProtectorsNationalityController.onPageLoad(NormalMode).url
 
-  "ProtectorNationality Controller" - {
+  "WhatIsProtectorNationality Controller" - {
 
     "must return OK and the correct view for a GET" in {
 
@@ -69,7 +69,7 @@ class ProtectorNationalityControllerSpec extends SpecBase with MockitoSugar with
         "mode" -> NormalMode
       )
 
-      templateCaptor.getValue mustEqual "protectorNationality.njk"
+      templateCaptor.getValue mustEqual "whatIsProtectorNationality.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -80,7 +80,7 @@ class ProtectorNationalityControllerSpec extends SpecBase with MockitoSugar with
       when(mockRenderer.render(any(), any())(any()))
         .thenReturn(Future.successful(Html("")))
 
-      val userAnswers = UserAnswers(userAnswersId).set(ProtectorNationalityPage, "answer").success.value
+      val userAnswers = UserAnswers(userAnswersId).set(WhatIsProtectorNationalityPage, "answer").success.value
       val application = applicationBuilder(userAnswers = Some(userAnswers)).build()
       val request = FakeRequest(GET, protectorNationalityRoute)
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])
@@ -99,7 +99,7 @@ class ProtectorNationalityControllerSpec extends SpecBase with MockitoSugar with
         "mode" -> NormalMode
       )
 
-      templateCaptor.getValue mustEqual "protectorNationality.njk"
+      templateCaptor.getValue mustEqual "whatIsProtectorNationality.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -153,7 +153,7 @@ class ProtectorNationalityControllerSpec extends SpecBase with MockitoSugar with
         "mode" -> NormalMode
       )
 
-      templateCaptor.getValue mustEqual "protectorNationality.njk"
+      templateCaptor.getValue mustEqual "whatIsProtectorNationality.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()

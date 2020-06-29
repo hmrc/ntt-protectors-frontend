@@ -59,7 +59,7 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messag
       )
   }
 
-  def protectorCountrySameAsResidence: Option[Row] = userAnswers.get(ProtectorCountrySameAsResidencePage) map {
+  def protectorCountrySameAsResidence: Option[Row] = userAnswers.get(IsTheProtectorsCountrySameAsResidencePage) map {
     answer =>
       Row(
         key     = Key(msg"protectorCountrySameAsResidence.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
@@ -67,14 +67,14 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messag
         actions = List(
           Action(
             content            = msg"site.edit",
-            href               = routes.ProtectorCountrySameAsResidenceController.onPageLoad(CheckMode).url,
+            href               = routes.IsTheProtectorsCountrySameAsResidenceController.onPageLoad(CheckMode).url,
             visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"protectorCountrySameAsResidence.checkYourAnswersLabel"))
           )
         )
       )
   }
 
-  def protectorNationality: Option[Row] = userAnswers.get(ProtectorNationalityPage) map {
+  def protectorNationality: Option[Row] = userAnswers.get(WhatIsProtectorNationalityPage) map {
     answer =>
       Row(
         key     = Key(msg"protectorNationality.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
@@ -82,7 +82,7 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messag
         actions = List(
           Action(
             content            = msg"site.edit",
-            href               = routes.ProtectorNationalityController.onPageLoad(CheckMode).url,
+            href               = routes.WhatIsProtectorsNationalityController.onPageLoad(CheckMode).url,
             visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"protectorNationality.checkYourAnswersLabel"))
           )
         )

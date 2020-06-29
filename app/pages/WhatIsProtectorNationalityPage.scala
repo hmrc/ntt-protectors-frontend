@@ -16,16 +16,11 @@
 
 package pages
 
-import pages.behaviours.PageBehaviours
+import play.api.libs.json.JsPath
 
-class ProtectorCountrySameAsResidencePageSpec extends PageBehaviours {
+case object WhatIsProtectorNationalityPage extends QuestionPage[String] {
 
-  "ProtectorCountrySameAsResidencePage" - {
+  override def path: JsPath = JsPath \ toString
 
-    beRetrievable[Boolean](ProtectorCountrySameAsResidencePage)
-
-    beSettable[Boolean](ProtectorCountrySameAsResidencePage)
-
-    beRemovable[Boolean](ProtectorCountrySameAsResidencePage)
-  }
+  override def toString: String = "protectorNationality"
 }

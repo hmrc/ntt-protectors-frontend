@@ -18,15 +18,14 @@ package pages
 
 import pages.behaviours.PageBehaviours
 
+class IsTheProtectorsCountrySameAsResidencePageSpec extends PageBehaviours {
 
-class ProtectorNationalityPageSpec extends PageBehaviours {
+  "ProtectorCountrySameAsResidencePage" - {
 
-  "ProtectorNationalityPage" - {
+    beRetrievable[Boolean](IsTheProtectorsCountrySameAsResidencePage)
 
-    beRetrievable[String](ProtectorNationalityPage)
+    beSettable[Boolean](IsTheProtectorsCountrySameAsResidencePage)
 
-    beSettable[String](ProtectorNationalityPage)
-
-    beRemovable[String](ProtectorNationalityPage)
+    beRemovable[Boolean](IsTheProtectorsCountrySameAsResidencePage)
   }
 }

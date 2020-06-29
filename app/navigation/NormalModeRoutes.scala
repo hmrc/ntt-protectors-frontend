@@ -18,7 +18,7 @@ package navigation
 
 import controllers.routes
 import models.{NormalMode, UserAnswers}
-import pages.{DoYouKnowProtectorDateOfBirthPage, DoYouKnowTheirCountryOfResidencyPage, DoYouKnowTheirNationalityPage, Page, ProtectorCountrySameAsResidencePage, WhatIsProtectorDateOfBirthPage, ProtectorNationalityPage, ProtectorTypePage, WhatIsTheProtectorsNamePage}
+import pages.{DoYouKnowProtectorDateOfBirthPage, DoYouKnowTheirCountryOfResidencyPage, DoYouKnowTheirNationalityPage, Page, IsTheProtectorsCountrySameAsResidencePage, WhatIsProtectorDateOfBirthPage, WhatIsProtectorNationalityPage, ProtectorTypePage, WhatIsTheProtectorsNamePage}
 import play.api.mvc.Call
 
 object NormalModeRoutes {
@@ -27,9 +27,9 @@ object NormalModeRoutes {
     case WhatIsTheProtectorsNamePage => _ => routes.DoYouKnowProtectorDateOfBirthController.onPageLoad(NormalMode)
     case DoYouKnowProtectorDateOfBirthPage => _ => routes.WhatIsProtectorDateOfBirthController.onPageLoad(NormalMode)
     case WhatIsProtectorDateOfBirthPage => _ => routes.DoYouKnowTheirNationalityController.onPageLoad(NormalMode)
-    case DoYouKnowTheirNationalityPage => _ => routes.ProtectorNationalityController.onPageLoad(NormalMode)
-    case ProtectorNationalityPage => _ => routes.ProtectorCountrySameAsResidenceController.onPageLoad(NormalMode)
-    case ProtectorCountrySameAsResidencePage => _ => routes.DoYouKnowTheirCountryOfResidencyController.onPageLoad(NormalMode)
+    case DoYouKnowTheirNationalityPage => _ => routes.WhatIsProtectorsNationalityController.onPageLoad(NormalMode)
+    case WhatIsProtectorNationalityPage => _ => routes.IsTheProtectorsCountrySameAsResidenceController.onPageLoad(NormalMode)
+    case IsTheProtectorsCountrySameAsResidencePage => _ => routes.DoYouKnowTheirCountryOfResidencyController.onPageLoad(NormalMode)
     case DoYouKnowTheirCountryOfResidencyPage => _ => routes.WhatIsTheirCountryOfResidencyController.onPageLoad(NormalMode)
     case _ => _ => routes.IndexController.onPageLoad()
   }

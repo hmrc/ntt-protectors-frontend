@@ -177,3 +177,8 @@ protectorCountrySameAsResidence.title = Is their country the same as their resid
 protectorCountrySameAsResidence.heading = protectorCountrySameAsResidence
 protectorCountrySameAsResidence.checkYourAnswersLabel = protectorCountrySameAsResidence
 protectorCountrySameAsResidence.error.required = Select yes if protectorCountrySameAsResidence
+
+doYouKnowTheirCountryOfResidency.title = doYouKnowTheirCountryOfResidency
+doYouKnowTheirCountryOfResidency.heading = doYouKnowTheirCountryOfResidency
+doYouKnowTheirCountryOfResidency.checkYourAnswersLabel = doYouKnowTheirCountryOfResidency
+doYouKnowTheirCountryOfResidency.error.required = Select yes if doYouKnowTheirCountryOfResidency

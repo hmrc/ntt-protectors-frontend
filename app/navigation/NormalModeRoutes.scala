@@ -18,7 +18,7 @@ package navigation
 
 import controllers.routes
 import models.{NormalMode, UserAnswers}
-import pages.{DoYouKnowProtectorDateOfBirthPage, DoYouKnowTheirNationalityPage, Page, ProtectorDateOfBirthPage, ProtectorNationalityPage, ProtectorTypePage, ProtectorsNamePage}
+import pages.{DoYouKnowProtectorDateOfBirthPage, DoYouKnowTheirNationalityPage, Page, ProtectorCountrySameAsResidencePage, ProtectorDateOfBirthPage, ProtectorNationalityPage, ProtectorTypePage, ProtectorsNamePage}
 import play.api.mvc.Call
 
 object NormalModeRoutes {
@@ -29,6 +29,7 @@ object NormalModeRoutes {
     case ProtectorDateOfBirthPage => _ => routes.DoYouKnowTheirNationalityController.onPageLoad(NormalMode)
     case DoYouKnowTheirNationalityPage => _ => routes.ProtectorNationalityController.onPageLoad(NormalMode)
     case ProtectorNationalityPage => _ => routes.ProtectorCountrySameAsResidenceController.onPageLoad(NormalMode)
+    case ProtectorCountrySameAsResidencePage => _ => routes.DoYouKnowTheirCountryOfResidencyController.onPageLoad(NormalMode)
     case _ => _ => routes.IndexController.onPageLoad()
   }
 }

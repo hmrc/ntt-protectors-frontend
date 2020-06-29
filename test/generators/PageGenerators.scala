@@ -21,6 +21,9 @@ import pages._
 
 trait PageGenerators {
 
+  implicit lazy val arbitraryDoYouKnowTheCountryHeadOfficeIsInPage: Arbitrary[DoYouKnowTheCountryHeadOfficeIsInPage.type] =
+    Arbitrary(DoYouKnowTheCountryHeadOfficeIsInPage)
+
   implicit lazy val arbitraryWhatIsTheNameOfTheCompanyPage: Arbitrary[WhatIsTheNameOfTheCompanyPage.type] =
     Arbitrary(WhatIsTheNameOfTheCompanyPage)
 

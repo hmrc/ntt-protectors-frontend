@@ -194,3 +194,8 @@ whatIsTheNameOfTheCompany.heading = whatIsTheNameOfTheCompany
 whatIsTheNameOfTheCompany.checkYourAnswersLabel = whatIsTheNameOfTheCompany
 whatIsTheNameOfTheCompany.error.required = Enter whatIsTheNameOfTheCompany
 whatIsTheNameOfTheCompany.error.length = WhatIsTheNameOfTheCompany must be 100 characters or less
+
+doYouKnowTheCountryHeadOfficeIsIn.title = doYouKnowTheCountryHeadOfficeIsIn
+doYouKnowTheCountryHeadOfficeIsIn.heading = doYouKnowTheCountryHeadOfficeIsIn
+doYouKnowTheCountryHeadOfficeIsIn.checkYourAnswersLabel = doYouKnowTheCountryHeadOfficeIsIn
+doYouKnowTheCountryHeadOfficeIsIn.error.required = Select yes if doYouKnowTheCountryHeadOfficeIsIn

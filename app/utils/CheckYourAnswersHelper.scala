@@ -29,6 +29,21 @@ import uk.gov.hmrc.viewmodels.Text.Literal
 
 class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messages) {
 
+  def doYouKnowTheCountryHeadOfficeIsIn: Option[Row] = userAnswers.get(DoYouKnowTheCountryHeadOfficeIsInPage) map {
+    answer =>
+      Row(
+        key     = Key(msg"doYouKnowTheCountryHeadOfficeIsIn.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
+        value   = Value(yesOrNo(answer)),
+        actions = List(
+          Action(
+            content            = msg"site.edit",
+            href               = routes.DoYouKnowTheCountryHeadOfficeIsInController.onPageLoad(CheckMode).url,
+            visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"doYouKnowTheCountryHeadOfficeIsIn.checkYourAnswersLabel"))
+          )
+        )
+      )
+  }
+
   def whatIsTheNameOfTheCompany: Option[Row] = userAnswers.get(WhatIsTheNameOfTheCompanyPage) map {
     answer =>
       Row(

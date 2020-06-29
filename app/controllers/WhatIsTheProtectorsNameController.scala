@@ -21,7 +21,7 @@ import forms.ProtectorsNameFormProvider
 import javax.inject.Inject
 import models.Mode
 import navigation.Navigator
-import pages.ProtectorsNamePage
+import pages.WhatIsTheProtectorsNamePage
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.libs.json.Json
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
@@ -32,7 +32,7 @@ import uk.gov.hmrc.viewmodels.NunjucksSupport
 
 import scala.concurrent.{ExecutionContext, Future}
 
-class ProtectorsNameController @Inject()(
+class WhatIsTheProtectorsNameController @Inject()(
     override val messagesApi: MessagesApi,
     sessionRepository: SessionRepository,
     navigator: Navigator,
@@ -49,7 +49,7 @@ class ProtectorsNameController @Inject()(
   def onPageLoad(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData).async {
     implicit request =>
 
-      val preparedForm = request.userAnswers.get(ProtectorsNamePage) match {
+      val preparedForm = request.userAnswers.get(WhatIsTheProtectorsNamePage) match {
         case None => form
         case Some(value) => form.fill(value)
       }
@@ -59,7 +59,7 @@ class ProtectorsNameController @Inject()(
         "mode"   -> mode
       )
 
-      renderer.render("protectorsName.njk", json).map(Ok(_))
+      renderer.render("whatIsTheProtectorsName.njk", json).map(Ok(_))
   }
 
   def onSubmit(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData).async {
@@ -73,13 +73,13 @@ class ProtectorsNameController @Inject()(
             "mode"   -> mode
           )
 
-          renderer.render("protectorsName.njk", json).map(BadRequest(_))
+          renderer.render("whatIsTheProtectorsName.njk", json).map(BadRequest(_))
         },
         value =>
           for {
-            updatedAnswers <- Future.fromTry(request.userAnswers.set(ProtectorsNamePage, value))
+            updatedAnswers <- Future.fromTry(request.userAnswers.set(WhatIsTheProtectorsNamePage, value))
             _              <- sessionRepository.set(updatedAnswers)
-          } yield Redirect(navigator.nextPage(ProtectorsNamePage, mode, updatedAnswers))
+          } yield Redirect(navigator.nextPage(WhatIsTheProtectorsNamePage, mode, updatedAnswers))
       )
   }
 }

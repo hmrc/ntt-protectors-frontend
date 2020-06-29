@@ -19,14 +19,14 @@ package pages
 import models.ProtectorsName
 import pages.behaviours.PageBehaviours
 
-class ProtectorsNamePageSpec extends PageBehaviours {
+class WhatIsTheProtectorsNamePageSpec extends PageBehaviours {
 
   "ProtectorsNamePage" - {
 
-    beRetrievable[ProtectorsName](ProtectorsNamePage)
+    beRetrievable[ProtectorsName](WhatIsTheProtectorsNamePage)
 
-    beSettable[ProtectorsName](ProtectorsNamePage)
+    beSettable[ProtectorsName](WhatIsTheProtectorsNamePage)
 
-    beRemovable[ProtectorsName](ProtectorsNamePage)
+    beRemovable[ProtectorsName](WhatIsTheProtectorsNamePage)
   }
 }

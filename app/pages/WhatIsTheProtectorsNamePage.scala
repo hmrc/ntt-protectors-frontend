@@ -19,7 +19,7 @@ package pages
 import models.ProtectorsName
 import play.api.libs.json.JsPath
 
-case object ProtectorsNamePage extends QuestionPage[ProtectorsName] {
+case object WhatIsTheProtectorsNamePage extends QuestionPage[ProtectorsName] {
 
   override def path: JsPath = JsPath \ toString
 

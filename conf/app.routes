@@ -19,10 +19,10 @@ POST       /protectorType                        controllers.ProtectorTypeContro
 GET        /changeProtectorType                  controllers.ProtectorTypeController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeProtectorType                  controllers.ProtectorTypeController.onSubmit(mode: Mode = CheckMode)
 
-GET        /protectorsName                        controllers.ProtectorsNameController.onPageLoad(mode: Mode = NormalMode)
-POST       /protectorsName                        controllers.ProtectorsNameController.onSubmit(mode: Mode = NormalMode)
-GET        /changeProtectorsName                  controllers.ProtectorsNameController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeProtectorsName                  controllers.ProtectorsNameController.onSubmit(mode: Mode = CheckMode)
+GET        /protectorsName                        controllers.WhatIsTheProtectorsNameController.onPageLoad(mode: Mode = NormalMode)
+POST       /protectorsName                        controllers.WhatIsTheProtectorsNameController.onSubmit(mode: Mode = NormalMode)
+GET        /changeProtectorsName                  controllers.WhatIsTheProtectorsNameController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeProtectorsName                  controllers.WhatIsTheProtectorsNameController.onSubmit(mode: Mode = CheckMode)
 
 GET        /doYouKnowProtectorDateOfBirth                        controllers.DoYouKnowProtectorDateOfBirthController.onPageLoad(mode: Mode = NormalMode)
 POST       /doYouKnowProtectorDateOfBirth                        controllers.DoYouKnowProtectorDateOfBirthController.onSubmit(mode: Mode = NormalMode)

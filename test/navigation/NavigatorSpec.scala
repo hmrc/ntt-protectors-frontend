@@ -48,14 +48,14 @@ class NavigatorSpec extends SpecBase with ScalaCheckPropertyChecks with Generato
         forAll(arbitrary[UserAnswers]) {
           answers =>
             navigator.nextPage(ProtectorTypePage, NormalMode, answers)
-              .mustBe(routes.ProtectorsNameController.onPageLoad(NormalMode))
+              .mustBe(routes.WhatIsTheProtectorsNameController.onPageLoad(NormalMode))
         }
       }
 
       "must go from Protector Name page to Knows date of Birth Page" in {
         forAll(arbitrary[UserAnswers]) {
           answers =>
-            navigator.nextPage(ProtectorsNamePage, NormalMode, answers)
+            navigator.nextPage(WhatIsTheProtectorsNamePage, NormalMode, answers)
               .mustBe(routes.DoYouKnowProtectorDateOfBirthController.onPageLoad(NormalMode))
         }
       }

@@ -34,7 +34,7 @@ trait UserAnswersGenerator extends TryValues {
     arbitrary[(ProtectorDateOfBirthPage.type, JsValue)] ::
     arbitrary[(DoYouKnowTheirNationalityPage.type, JsValue)] ::
     arbitrary[(DoYouKnowProtectorDateOfBirthPage.type, JsValue)] ::
-    arbitrary[(ProtectorsNamePage.type, JsValue)] ::
+    arbitrary[(WhatIsTheProtectorsNamePage.type, JsValue)] ::
     arbitrary[(ProtectorTypePage.type, JsValue)] ::
     Nil
 

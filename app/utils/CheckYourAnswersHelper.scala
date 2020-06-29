@@ -134,7 +134,7 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messag
       )
   }
 
-  def protectorsName: Option[Row] = userAnswers.get(ProtectorsNamePage) map {
+  def protectorsName: Option[Row] = userAnswers.get(WhatIsTheProtectorsNamePage) map {
     answer =>
       Row(
         key     = Key(msg"protectorsName.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
@@ -142,7 +142,7 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messag
         actions = List(
           Action(
             content            = msg"site.edit",
-            href               = routes.ProtectorsNameController.onPageLoad(CheckMode).url,
+            href               = routes.WhatIsTheProtectorsNameController.onPageLoad(CheckMode).url,
             visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"protectorsName.checkYourAnswersLabel"))
           )
         )

@@ -25,7 +25,7 @@ import org.mockito.ArgumentCaptor
 import org.mockito.Matchers.any
 import org.mockito.Mockito.{times, verify, when}
 import org.scalatestplus.mockito.MockitoSugar
-import pages.ProtectorsNamePage
+import pages.WhatIsTheProtectorsNamePage
 import play.api.inject.bind
 import play.api.libs.json.{JsObject, Json}
 import play.api.mvc.Call
@@ -37,19 +37,19 @@ import uk.gov.hmrc.viewmodels.NunjucksSupport
 
 import scala.concurrent.Future
 
-class ProtectorsNameControllerSpec extends SpecBase with MockitoSugar with NunjucksSupport with JsonMatchers {
+class WhatIsTheProtectorsNameControllerSpec extends SpecBase with MockitoSugar with NunjucksSupport with JsonMatchers {
 
   def onwardRoute = Call("GET", "/foo")
 
   val formProvider = new ProtectorsNameFormProvider()
   val form = formProvider()
 
-  lazy val protectorsNameRoute = routes.ProtectorsNameController.onPageLoad(NormalMode).url
+  lazy val protectorsNameRoute = routes.WhatIsTheProtectorsNameController.onPageLoad(NormalMode).url
 
   val userAnswers = UserAnswers(
     userAnswersId,
     Json.obj(
-      ProtectorsNamePage.toString -> Json.obj(
+      WhatIsTheProtectorsNamePage.toString -> Json.obj(
         "FirstName" -> "value 1",
         "MiddleName" -> "value 2",
         "LastName" -> "value 3"
@@ -57,7 +57,7 @@ class ProtectorsNameControllerSpec extends SpecBase with MockitoSugar with Nunju
     )
   )
 
-  "ProtectorsName Controller" - {
+  "What Is The Protectors Name Controller" - {
 
     "must return OK and the correct view for a GET" in {
 
@@ -80,7 +80,7 @@ class ProtectorsNameControllerSpec extends SpecBase with MockitoSugar with Nunju
         "mode" -> NormalMode
       )
 
-      templateCaptor.getValue mustEqual "protectorsName.njk"
+      templateCaptor.getValue mustEqual "whatIsTheProtectorsName.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -115,7 +115,7 @@ class ProtectorsNameControllerSpec extends SpecBase with MockitoSugar with Nunju
         "mode" -> NormalMode
       )
 
-      templateCaptor.getValue mustEqual "protectorsName.njk"
+      templateCaptor.getValue mustEqual "whatIsTheProtectorsName.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -199,7 +199,7 @@ class ProtectorsNameControllerSpec extends SpecBase with MockitoSugar with Nunju
         "mode"   -> NormalMode
       )
 
-      templateCaptor.getValue mustEqual "protectorsName.njk"
+      templateCaptor.getValue mustEqual "whatIsTheProtectorsName.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
        application.stop()

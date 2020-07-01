@@ -155,53 +155,53 @@ doYouKnowProtectorDateOfBirth.error.required = Select yes if know John Doe's dat
 
 doYouKnowTheirNationality.title = Do you know their Nationality?
 doYouKnowTheirNationality.heading = Do you know their Nationality?
-doYouKnowTheirNationality.checkYourAnswersLabel = doYouKnowTheirNationality
+doYouKnowTheirNationality.checkYourAnswersLabel = Do You Know Their Nationality?
 doYouKnowTheirNationality.error.required = Select yes if you know their Nationality
 
 protectorDateOfBirth.title = What Is Protector Date Of Birth?
 protectorDateOfBirth.heading = What Is Protector Date Of Birth?
 protectorDateOfBirth.hint = For example, 12 11 2007
-protectorDateOfBirth.checkYourAnswersLabel = ProtectorDateOfBirth
-protectorDateOfBirth.error.required.all = Enter the protectorDateOfBirth
-protectorDateOfBirth.error.required.two = The protectorDateOfBirth must include {0} and {1}
-protectorDateOfBirth.error.required = The protectorDateOfBirth must include {0}
-protectorDateOfBirth.error.invalid = Enter a real ProtectorDateOfBirth
+protectorDateOfBirth.checkYourAnswersLabel = Protector Date of Birth
+protectorDateOfBirth.error.required.all = Enter the Protectors Date Of Birth
+protectorDateOfBirth.error.required.two = The Date of Birth must include {0} and {1}
+protectorDateOfBirth.error.required = The Date of Birth must include {0}
+protectorDateOfBirth.error.invalid = Enter a real Date of Birth
 
 protectorNationality.title = What is their country of nationality?
-protectorNationality.heading = protectorNationality
-protectorNationality.checkYourAnswersLabel = protectorNationality
-protectorNationality.error.required = Enter protectorNationality
-protectorNationality.error.length = ProtectorNationality must be 100 characters or less
+protectorNationality.heading = What is their country of nationality?
+protectorNationality.checkYourAnswersLabel = Protector Nationality
+protectorNationality.error.required = Enter protectors nationality
+protectorNationality.error.length = Nationality  must be 100 characters or less
 
 protectorCountrySameAsResidence.title = Is their country the same as their residency?
-protectorCountrySameAsResidence.heading = protectorCountrySameAsResidence
-protectorCountrySameAsResidence.checkYourAnswersLabel = protectorCountrySameAsResidence
-protectorCountrySameAsResidence.error.required = Select yes if protectorCountrySameAsResidence
+protectorCountrySameAsResidence.heading = Is their country the same as their residency?
+protectorCountrySameAsResidence.checkYourAnswersLabel = Is their country the same as their residency?
+protectorCountrySameAsResidence.error.required = Select yes if the Nationality Country is the same os their Residence Country
 
-doYouKnowTheirCountryOfResidency.title = doYouKnowTheirCountryOfResidency
-doYouKnowTheirCountryOfResidency.heading = doYouKnowTheirCountryOfResidency
-doYouKnowTheirCountryOfResidency.checkYourAnswersLabel = doYouKnowTheirCountryOfResidency
-doYouKnowTheirCountryOfResidency.error.required = Select yes if doYouKnowTheirCountryOfResidency
+doYouKnowTheirCountryOfResidency.title = Do you know their country of residence?
+doYouKnowTheirCountryOfResidency.heading = Do you know their country of residence?
+doYouKnowTheirCountryOfResidency.checkYourAnswersLabel = Do you know their country of residence?
+doYouKnowTheirCountryOfResidency.error.required = Select yes if know their country of residence
 
-whatIsTheirCountryOfResidency.title = whatIsTheirCountryOfResidency
-whatIsTheirCountryOfResidency.heading = whatIsTheirCountryOfResidency
-whatIsTheirCountryOfResidency.checkYourAnswersLabel = whatIsTheirCountryOfResidency
-whatIsTheirCountryOfResidency.error.required = Enter whatIsTheirCountryOfResidency
-whatIsTheirCountryOfResidency.error.length = WhatIsTheirCountryOfResidency must be 100 characters or less
+whatIsTheirCountryOfResidency.title = What is their country of residency?
+whatIsTheirCountryOfResidency.heading = What is their country of residency?
+whatIsTheirCountryOfResidency.checkYourAnswersLabel = Country of residency
+whatIsTheirCountryOfResidency.error.required = Enter their country of residency
+whatIsTheirCountryOfResidency.error.length = Country of residency must be 100 characters or less
 
-whatIsTheNameOfTheCompany.title = whatIsTheNameOfTheCompany
-whatIsTheNameOfTheCompany.heading = whatIsTheNameOfTheCompany
-whatIsTheNameOfTheCompany.checkYourAnswersLabel = whatIsTheNameOfTheCompany
-whatIsTheNameOfTheCompany.error.required = Enter whatIsTheNameOfTheCompany
-whatIsTheNameOfTheCompany.error.length = WhatIsTheNameOfTheCompany must be 100 characters or less
+whatIsTheNameOfTheCompany.title = What is the name of the company?
+whatIsTheNameOfTheCompany.heading = What is the name of the company?
+whatIsTheNameOfTheCompany.checkYourAnswersLabel = Company Name
+whatIsTheNameOfTheCompany.error.required = Enter company name
+whatIsTheNameOfTheCompany.error.length = Company name must be 100 characters or less
 
-doYouKnowTheCountryHeadOfficeIsIn.title = doYouKnowTheCountryHeadOfficeIsIn
-doYouKnowTheCountryHeadOfficeIsIn.heading = doYouKnowTheCountryHeadOfficeIsIn
-doYouKnowTheCountryHeadOfficeIsIn.checkYourAnswersLabel = doYouKnowTheCountryHeadOfficeIsIn
-doYouKnowTheCountryHeadOfficeIsIn.error.required = Select yes if doYouKnowTheCountryHeadOfficeIsIn
+doYouKnowTheCountryHeadOfficeIsIn.title = Do you know the country the head office is based?
+doYouKnowTheCountryHeadOfficeIsIn.heading = Do you know the country the head office is based?
+doYouKnowTheCountryHeadOfficeIsIn.checkYourAnswersLabel = Do you know the country the head office is based?
+doYouKnowTheCountryHeadOfficeIsIn.error.required = Select yes if know the country where their head office is based
 
-whatIsTheCountryCompanyHeadOfficeIsBased.title = whatIsTheCountryCompanyHeadOfficeIsBased
-whatIsTheCountryCompanyHeadOfficeIsBased.heading = whatIsTheCountryCompanyHeadOfficeIsBased
-whatIsTheCountryCompanyHeadOfficeIsBased.checkYourAnswersLabel = whatIsTheCountryCompanyHeadOfficeIsBased
-whatIsTheCountryCompanyHeadOfficeIsBased.error.required = Enter whatIsTheCountryCompanyHeadOfficeIsBased
-whatIsTheCountryCompanyHeadOfficeIsBased.error.length = WhatIsTheCountryCompanyHeadOfficeIsBased must be 100 characters or less
+whatIsTheCountryCompanyHeadOfficeIsBased.title = What is the country the head office is based?
+whatIsTheCountryCompanyHeadOfficeIsBased.heading = What is the country the head office is based?
+whatIsTheCountryCompanyHeadOfficeIsBased.checkYourAnswersLabel = Country the head office is based?
+whatIsTheCountryCompanyHeadOfficeIsBased.error.required = Enter country where head office is based
+whatIsTheCountryCompanyHeadOfficeIsBased.error.length = Country where head office is based must be 100 characters or less

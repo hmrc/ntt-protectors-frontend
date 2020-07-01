@@ -51,7 +51,10 @@ class CheckYourAnswersController @Inject()(
         helper.protectorNationality,
         helper.protectorCountrySameAsResidence,
         helper.doYouKnowTheirCountryOfResidency,
-        helper.whatIsTheirCountryOfResidency
+        helper.whatIsTheirCountryOfResidency,
+        helper.whatIsTheNameOfTheCompany,
+        helper.doYouKnowTheCountryHeadOfficeIsIn,
+        helper.whatIsTheCountryCompanyHeadOfficeIsBased
       ).flatten
 
       renderer.render(

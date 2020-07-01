@@ -27,6 +27,7 @@ import play.api.libs.json.Json
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import renderer.Renderer
 import repositories.SessionRepository
+import services.CountryService
 import uk.gov.hmrc.play.bootstrap.controller.FrontendBaseController
 import uk.gov.hmrc.viewmodels.NunjucksSupport
 
@@ -41,8 +42,9 @@ class WhatIsProtectorsNationalityController @Inject()(
     requireData: DataRequiredAction,
     formProvider: ProtectorNationalityFormProvider,
     val controllerComponents: MessagesControllerComponents,
-    renderer: Renderer
-)(implicit ec: ExecutionContext) extends FrontendBaseController with I18nSupport with NunjucksSupport {
+    renderer: Renderer,
+    override val countryService: CountryService
+)(implicit ec: ExecutionContext) extends FrontendBaseController with I18nSupport with NunjucksSupport with CountryLookup {
 
   private val form = formProvider()
 
@@ -56,7 +58,8 @@ class WhatIsProtectorsNationalityController @Inject()(
 
       val json = Json.obj(
         "form" -> preparedForm,
-        "mode" -> mode
+        "mode" -> mode,
+        "countries" -> countries(request2Messages(request))
       )
 
       renderer.render("whatIsProtectorNationality.njk", json).map(Ok(_))

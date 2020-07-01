@@ -1,4 +1,10 @@
 
+accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#country-autocomplete')
+})
+
+
+/*
 var countries = [
     'Afghanistan',
     'Akrotiri',
@@ -267,4 +273,4 @@ if (elem) {
         source: countries,
         name: "value"
     })
-}
+}*/

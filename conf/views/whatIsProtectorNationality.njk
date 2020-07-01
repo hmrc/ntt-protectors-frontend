@@ -5,6 +5,7 @@
 {% from "govuk/components/button/macro.njk"        import govukButton %}
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 {% from "macros/title.njk"                         import title %}
+{% from "govuk/components/select/macro.njk"        import govukSelect %}
 
 {% block pageTitle %}
   {{ title(messages("protectorNationality.title"), form.errors) }}
@@ -31,8 +32,17 @@
 
           {{ csrf() | safe }}
 
-          <label class="govuk-label govuk-label--xl" for="country-autocomplete">{{messages('protectorNationality.title')}}</label>
-          <div id="country-autocomplete"></div>
+           {{ govukSelect({
+                id: "country-autocomplete",
+                name: "value",
+                label: {
+                  text: messages('protectorNationality.title'),
+                  isPageHeading: true,
+                  classes: "govuk-label--xl"
+                },
+                items: countries
+               })
+           }}
 
           {{ govukButton({
             text: messages("site.continue")

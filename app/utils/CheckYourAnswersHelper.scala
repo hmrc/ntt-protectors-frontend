@@ -23,17 +23,18 @@ import models.{CheckMode, UserAnswers}
 import pages._
 import play.api.i18n.Messages
 import CheckYourAnswersHelper._
+import services.CountryService
 import uk.gov.hmrc.viewmodels._
 import uk.gov.hmrc.viewmodels.SummaryList._
 import uk.gov.hmrc.viewmodels.Text.Literal
 
-class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messages) {
+class CheckYourAnswersHelper(userAnswers: UserAnswers, countryService: CountryService)(implicit messages: Messages) {
 
   def whatIsTheCountryCompanyHeadOfficeIsBased: Option[Row] = userAnswers.get(WhatIsTheCountryCompanyHeadOfficeIsBasedPage) map {
     answer =>
       Row(
         key     = Key(msg"whatIsTheCountryCompanyHeadOfficeIsBased.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
-        value   = Value(lit"$answer"),
+        value   = Value(country(answer)),
         actions = List(
           Action(
             content            = msg"site.edit",
@@ -78,7 +79,7 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messag
     answer =>
       Row(
         key     = Key(msg"whatIsTheirCountryOfResidency.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
-        value   = Value(lit"$answer"),
+        value   = Value(country(answer)),
         actions = List(
           Action(
             content            = msg"site.edit",
@@ -123,7 +124,7 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messag
     answer =>
       Row(
         key     = Key(msg"protectorNationality.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
-        value   = Value(lit"$answer"),
+        value   = Value(country(answer)),
         actions = List(
           Action(
             content            = msg"site.edit",
@@ -208,6 +209,9 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messag
         )
       )
   }
+
+  private def country(code: String): Content =
+    lit"${countryService.getCountryByCode(code).getOrElse("")}"
 
   private def yesOrNo(answer: Boolean): Content =
     if (answer) {

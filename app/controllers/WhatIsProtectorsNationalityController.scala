@@ -51,7 +51,9 @@ class WhatIsProtectorsNationalityController @Inject()(
   def onPageLoad(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData).async {
     implicit request =>
 
-      val preparedForm = request.userAnswers.get(WhatIsProtectorNationalityPage) match {
+      val existingAnswer = request.userAnswers.get(WhatIsProtectorNationalityPage)
+
+      val preparedForm = existingAnswer match {
         case None => form
         case Some(value) => form.fill(value)
       }
@@ -59,7 +61,7 @@ class WhatIsProtectorsNationalityController @Inject()(
       val json = Json.obj(
         "form" -> preparedForm,
         "mode" -> mode,
-        "countries" -> countries(request2Messages(request))
+        "countries" -> countries(messages = request2Messages(request), selected = existingAnswer)
       )
 
       renderer.render("whatIsProtectorNationality.njk", json).map(Ok(_))

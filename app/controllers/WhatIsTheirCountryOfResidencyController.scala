@@ -34,16 +34,16 @@ import uk.gov.hmrc.viewmodels.NunjucksSupport
 import scala.concurrent.{ExecutionContext, Future}
 
 class WhatIsTheirCountryOfResidencyController @Inject()(
-    override val messagesApi: MessagesApi,
-    sessionRepository: SessionRepository,
-    navigator: Navigator,
-    identify: IdentifierAction,
-    getData: DataRetrievalAction,
-    requireData: DataRequiredAction,
-    formProvider: WhatIsTheirCountryOfResidencyFormProvider,
-    val controllerComponents: MessagesControllerComponents,
-    renderer: Renderer,
-  override val countryService: CountryService
+                                                        override val messagesApi: MessagesApi,
+                                                        sessionRepository: SessionRepository,
+                                                        navigator: Navigator,
+                                                        identify: IdentifierAction,
+                                                        getData: DataRetrievalAction,
+                                                        requireData: DataRequiredAction,
+                                                        formProvider: WhatIsTheirCountryOfResidencyFormProvider,
+                                                        val controllerComponents: MessagesControllerComponents,
+                                                        renderer: Renderer,
+                                                      override val countryService: CountryService
 )(implicit ec: ExecutionContext) extends FrontendBaseController with I18nSupport with NunjucksSupport with CountryLookup {
 
   private val form = formProvider()

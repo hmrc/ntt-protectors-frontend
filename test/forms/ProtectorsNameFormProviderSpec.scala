@@ -26,8 +26,8 @@ class ProtectorsNameFormProviderSpec extends StringFieldBehaviours {
   ".FirstName" - {
 
     val fieldName = "FirstName"
-    val requiredKey = "protectorsName.error.FirstName.required"
-    val lengthKey = "protectorsName.error.FirstName.length"
+    val requiredKey = "protectorsName.error.firstName.required"
+    val lengthKey = "protectorsName.error.firstName.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(
@@ -53,8 +53,7 @@ class ProtectorsNameFormProviderSpec extends StringFieldBehaviours {
   ".MiddleName" - {
 
     val fieldName = "MiddleName"
-    val requiredKey = "protectorsName.error.MiddleName.required"
-    val lengthKey = "protectorsName.error.MiddleName.length"
+    val lengthKey = "protectorsName.error.middleName.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(
@@ -74,8 +73,8 @@ class ProtectorsNameFormProviderSpec extends StringFieldBehaviours {
   ".LastName" - {
 
     val fieldName = "LastName"
-    val requiredKey = "protectorsName.error.LastName.required"
-    val lengthKey = "protectorsName.error.LastName.length"
+    val requiredKey = "protectorsName.error.lastName.required"
+    val lengthKey = "protectorsName.error.lastName.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(

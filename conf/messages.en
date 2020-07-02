@@ -139,14 +139,14 @@ protectorType.error.required = Select protectorType
 
 protectorsName.title = Register and Maintain a Trust
 protectorsName.heading = What is the Protector's Name?
-protectorsName.FirstName = First Name
-protectorsName.MiddleName = Middle Name (Optional)
-protectorsName.LastName = Last Name
+protectorsName.firstName = First Name
+protectorsName.middleName = Middle Name (Optional)
+protectorsName.lastName = Last Name
 protectorsName.checkYourAnswersLabel = Protectors Name
-protectorsName.error.FirstName.required = Enter First Name
-protectorsName.error.LastName.required = Enter Middle Name
-protectorsName.error.FirstName.length = First Name must be 100 characters or less
-protectorsName.error.MiddleName.length = Middle Name must be 100 characters or less
+protectorsName.error.firstName.required = Enter First Name
+protectorsName.error.lastName.required = Enter Last Name
+protectorsName.error.firstName.length = First Name must be 100 characters or less
+protectorsName.error.lastName.length = Last Name must be 100 characters or less
 
 doYouKnowProtectorDateOfBirth.title = Do you know John Doe's date of birth?
 doYouKnowProtectorDateOfBirth.heading = Do you know John Doe's date of birth?

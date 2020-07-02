@@ -27,12 +27,12 @@ class ProtectorsNameFormProvider @Inject() extends Mappings {
 
    def apply(): Form[ProtectorsName] = Form(
      mapping(
-      "FirstName" -> text("protectorsName.error.FirstName.required")
-        .verifying(maxLength(100, "protectorsName.error.FirstName.length")),
-      "MiddleName" -> optional(text("protectorsName.error.MiddleName.required")
-        .verifying(maxLength(100, "protectorsName.error.MiddleName.length"))),
-       "LastName" -> text("protectorsName.error.LastName.required")
-         .verifying(maxLength(100, "protectorsName.error.LastName.length"))
+      "FirstName" -> text("protectorsName.error.firstName.required")
+        .verifying(maxLength(100, "protectorsName.error.firstName.length")),
+      "MiddleName" -> optional(text("protectorsName.error.middleName.required")
+        .verifying(maxLength(100, "protectorsName.error.middleName.length"))),
+       "LastName" -> text("protectorsName.error.lastName.required")
+         .verifying(maxLength(100, "protectorsName.error.lastName.length"))
     )(ProtectorsName.apply)(ProtectorsName.unapply)
    )
  }

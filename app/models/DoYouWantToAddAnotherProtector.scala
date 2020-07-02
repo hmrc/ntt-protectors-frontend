@@ -25,23 +25,23 @@ sealed trait DoYouWantToAddAnotherProtector
 
 object DoYouWantToAddAnotherProtector extends Enumerable.Implicits {
 
-  case object Yesiwanttoaddthemnow extends WithName("yesIWantToAddThemNow") with DoYouWantToAddAnotherProtector
-  case object Yesiwanttoaddthemlater extends WithName("yesIWantToAddThemLater") with DoYouWantToAddAnotherProtector
-  case object Noihaveaddedallprotectors extends WithName("noIHaveAddedAllProtectors") with DoYouWantToAddAnotherProtector
+  case object YesIWantToAddThemNow extends WithName("yesIWantToAddThemNow") with DoYouWantToAddAnotherProtector
+  case object YesIWantToAddThemLater extends WithName("yesIWantToAddThemLater") with DoYouWantToAddAnotherProtector
+  case object NoIHaveAddedAllProtectors extends WithName("noIHaveAddedAllProtectors") with DoYouWantToAddAnotherProtector
 
   val values: Seq[DoYouWantToAddAnotherProtector] = Seq(
-    Yesiwanttoaddthemnow,
-    Yesiwanttoaddthemlater,
-    Noihaveaddedallprotectors
+    YesIWantToAddThemNow,
+    YesIWantToAddThemLater,
+    NoIHaveAddedAllProtectors
   )
 
   def radios(form: Form[_])(implicit messages: Messages): Seq[Radios.Item] = {
 
     val field = form("value")
     val items = Seq(
-      Radios.Radio(msg"doYouWantToAddAnotherProtector.yesIWantToAddThemNow", Yesiwanttoaddthemnow.toString),
-      Radios.Radio(msg"doYouWantToAddAnotherProtector.yesIWantToAddThemLater", Yesiwanttoaddthemlater.toString),
-      Radios.Radio(msg"doYouWantToAddAnotherProtector.noIHaveAddedAllProtectors", Noihaveaddedallprotectors.toString)
+      Radios.Radio(msg"doYouWantToAddAnotherProtector.yesIWantToAddThemNow", YesIWantToAddThemNow.toString),
+      Radios.Radio(msg"doYouWantToAddAnotherProtector.yesIWantToAddThemLater", YesIWantToAddThemLater.toString),
+      Radios.Radio(msg"doYouWantToAddAnotherProtector.noIHaveAddedAllProtectors", NoIHaveAddedAllProtectors.toString)
     )
 
     Radios(field, items)

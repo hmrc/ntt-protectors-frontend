@@ -32,9 +32,8 @@ trait CountryDataProvider {
 @Singleton
 class GovUkCountryDataProvider @Inject()(env: Environment, config: FrontendAppConfig) extends CountryDataProvider {
 
-  // Data taken from trusts-frontend for consistency
   private val countriesPath = config.countryCanonicalList
-  // Valid country codes as defined by API#1306_Request_Schema-v0.4.0.json
+
   private val validCodesPath = config.countryDesCodes
 
   private def stripCode(value: String): String = value.substring(value.indexOf(":") + 1)

@@ -73,3 +73,8 @@ GET        /whatIsTheCountryCompanyHeadOfficeIsBased                        cont
 POST       /whatIsTheCountryCompanyHeadOfficeIsBased                        controllers.WhatIsTheCountryCompanyHeadOfficeIsBasedController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhatIsTheCountryCompanyHeadOfficeIsBased                  controllers.WhatIsTheCountryCompanyHeadOfficeIsBasedController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhatIsTheCountryCompanyHeadOfficeIsBased                  controllers.WhatIsTheCountryCompanyHeadOfficeIsBasedController.onSubmit(mode: Mode = CheckMode)
+
+GET        /doYouWantToAddAnotherProtector                        controllers.DoYouWantToAddAnotherProtectorController.onPageLoad(mode: Mode = NormalMode)
+POST       /doYouWantToAddAnotherProtector                        controllers.DoYouWantToAddAnotherProtectorController.onSubmit(mode: Mode = NormalMode)
+GET        /changeDoYouWantToAddAnotherProtector                  controllers.DoYouWantToAddAnotherProtectorController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeDoYouWantToAddAnotherProtector                  controllers.DoYouWantToAddAnotherProtectorController.onSubmit(mode: Mode = CheckMode)

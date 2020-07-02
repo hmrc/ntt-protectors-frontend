@@ -18,7 +18,7 @@ package navigation
 
 import controllers.routes
 import models.{NormalMode, UserAnswers}
-import pages.{DoYouKnowProtectorDateOfBirthPage, DoYouKnowTheCountryHeadOfficeIsInPage, DoYouKnowTheirCountryOfResidencyPage, DoYouKnowTheirNationalityPage, IsTheProtectorsCountrySameAsResidencePage, Page, ProtectorTypePage, WhatIsProtectorDateOfBirthPage, WhatIsProtectorNationalityPage, WhatIsTheCountryCompanyHeadOfficeIsBasedPage, WhatIsTheNameOfTheCompanyPage, WhatIsTheProtectorsNamePage, WhatIsTheirCountryOfResidencyPage}
+import pages.{DoYouKnowProtectorDateOfBirthPage, DoYouKnowTheCountryHeadOfficeIsInPage, DoYouKnowTheirCountryOfResidencyPage, DoYouKnowTheirNationalityPage, DoYouWantToAddAnotherProtectorPage, IsTheProtectorsCountrySameAsResidencePage, Page, ProtectorTypePage, WhatIsProtectorDateOfBirthPage, WhatIsProtectorNationalityPage, WhatIsTheCountryCompanyHeadOfficeIsBasedPage, WhatIsTheNameOfTheCompanyPage, WhatIsTheProtectorsNamePage, WhatIsTheirCountryOfResidencyPage}
 import play.api.mvc.Call
 
 object NormalModeRoutes {
@@ -34,7 +34,8 @@ object NormalModeRoutes {
     case WhatIsTheirCountryOfResidencyPage => _ => routes.WhatIsTheNameOfTheCompanyController.onPageLoad(NormalMode)
     case WhatIsTheNameOfTheCompanyPage => _ => routes.DoYouKnowTheCountryHeadOfficeIsInController.onPageLoad(NormalMode)
     case DoYouKnowTheCountryHeadOfficeIsInPage => _ => routes.WhatIsTheCountryCompanyHeadOfficeIsBasedController.onPageLoad((NormalMode))
-    case WhatIsTheCountryCompanyHeadOfficeIsBasedPage => _ => routes.CheckYourAnswersController.onPageLoad()
+    case WhatIsTheCountryCompanyHeadOfficeIsBasedPage => _ => routes.DoYouWantToAddAnotherProtectorController.onPageLoad(NormalMode)
+    case DoYouWantToAddAnotherProtectorPage => _ => routes.CheckYourAnswersController.onPageLoad()
     case _ => _ => routes.IndexController.onPageLoad()
   }
 }

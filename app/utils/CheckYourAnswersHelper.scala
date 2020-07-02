@@ -30,6 +30,21 @@ import uk.gov.hmrc.viewmodels.Text.Literal
 
 class CheckYourAnswersHelper(userAnswers: UserAnswers, countryService: CountryService)(implicit messages: Messages) {
 
+  def doYouWantToAddAnotherProtector: Option[Row] = userAnswers.get(DoYouWantToAddAnotherProtectorPage) map {
+    answer =>
+      Row(
+        key     = Key(msg"doYouWantToAddAnotherProtector.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
+        value   = Value(msg"doYouWantToAddAnotherProtector.$answer"),
+        actions = List(
+          Action(
+            content            = msg"site.edit",
+            href               = routes.DoYouWantToAddAnotherProtectorController.onPageLoad(CheckMode).url,
+            visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"doYouWantToAddAnotherProtector.checkYourAnswersLabel"))
+          )
+        )
+      )
+  }
+
   def whatIsTheCountryCompanyHeadOfficeIsBased: Option[Row] = userAnswers.get(WhatIsTheCountryCompanyHeadOfficeIsBasedPage) map {
     answer =>
       Row(

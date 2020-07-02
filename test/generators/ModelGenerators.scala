@@ -22,6 +22,11 @@ import org.scalacheck.{Arbitrary, Gen}
 
 trait ModelGenerators {
 
+  implicit lazy val arbitraryDoYouWantToAddAnotherProtector: Arbitrary[DoYouWantToAddAnotherProtector] =
+    Arbitrary {
+      Gen.oneOf(DoYouWantToAddAnotherProtector.values.toSeq)
+    }
+
   implicit lazy val arbitraryProtectorsName: Arbitrary[ProtectorsName] =
     Arbitrary {
       for {

@@ -205,3 +205,11 @@ whatIsTheCountryCompanyHeadOfficeIsBased.heading = What is the country the head 
 whatIsTheCountryCompanyHeadOfficeIsBased.checkYourAnswersLabel = Country the head office is based?
 whatIsTheCountryCompanyHeadOfficeIsBased.error.required = Enter country where head office is based
 whatIsTheCountryCompanyHeadOfficeIsBased.error.length = Country where head office is based must be 100 characters or less
+
+doYouWantToAddAnotherProtector.title = Do you want to add another protector?
+doYouWantToAddAnotherProtector.heading = Do you want to add another protector?
+doYouWantToAddAnotherProtector.yesIWantToAddThemNow = Yes. I want to add them now
+doYouWantToAddAnotherProtector.yesIWantToAddThemLater = Yes. I want to add them later
+doYouWantToAddAnotherProtector.noIHaveAddedAllProtectors = No. I have added all protectors
+doYouWantToAddAnotherProtector.checkYourAnswersLabel = Add another protector
+doYouWantToAddAnotherProtector.error.required = Select if you would like to add another protector

@@ -132,10 +132,18 @@ class NavigatorSpec extends SpecBase with ScalaCheckPropertyChecks with Generato
         }
       }
 
-      "must go from What Country is Head Office In to Check Your Answers Page" in {
+      "must go from What Country is Head Office In to Do You Want To Add Another Protector Page" in {
         forAll(arbitrary[UserAnswers]) {
           answers =>
             navigator.nextPage(WhatIsTheCountryCompanyHeadOfficeIsBasedPage, NormalMode, answers)
+              .mustBe(routes.DoYouWantToAddAnotherProtectorController.onPageLoad(NormalMode))
+        }
+      }
+
+      "must go from Do You Want To Add Another Protector Page to Check Your Answers Page" in {
+        forAll(arbitrary[UserAnswers]) {
+          answers =>
+            navigator.nextPage(DoYouWantToAddAnotherProtectorPage, NormalMode, answers)
               .mustBe(routes.CheckYourAnswersController.onPageLoad())
         }
       }

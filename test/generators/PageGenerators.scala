@@ -24,8 +24,8 @@ trait PageGenerators {
   implicit lazy val arbitraryDoYouWantToAddAnotherProtectorPage: Arbitrary[DoYouWantToAddAnotherProtectorPage.type] =
     Arbitrary(DoYouWantToAddAnotherProtectorPage)
 
-  implicit lazy val arbitraryWhatIsTheCountryCompanyHeadOfficeIsBasedPage: Arbitrary[WhatIsTheCountryCompanyHeadOfficeIsBasedPage.type] =
-    Arbitrary(WhatIsTheCountryCompanyHeadOfficeIsBasedPage)
+  implicit lazy val arbitraryWhatIsTheCountryCompanyHeadOfficeIsBasedPage: Arbitrary[WhatCountryIsTheHeadOfficeBasedInPage.type] =
+    Arbitrary(WhatCountryIsTheHeadOfficeBasedInPage)
 
   implicit lazy val arbitraryDoYouKnowTheCountryHeadOfficeIsInPage: Arbitrary[DoYouKnowTheCountryHeadOfficeIsInPage.type] =
     Arbitrary(DoYouKnowTheCountryHeadOfficeIsInPage)

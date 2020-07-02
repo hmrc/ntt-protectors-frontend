@@ -69,10 +69,10 @@ POST       /doYouKnowTheCountryHeadOfficeIsIn                   controllers.DoYo
 GET        /changeDoYouKnowTheCountryHeadOfficeIsIn             controllers.DoYouKnowTheCountryHeadOfficeIsInController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeDoYouKnowTheCountryHeadOfficeIsIn             controllers.DoYouKnowTheCountryHeadOfficeIsInController.onSubmit(mode: Mode = CheckMode)
 
-GET        /whatIsTheCountryCompanyHeadOfficeIsBased            controllers.WhatIsTheCountryCompanyHeadOfficeIsBasedController.onPageLoad(mode: Mode = NormalMode)
-POST       /whatIsTheCountryCompanyHeadOfficeIsBased            controllers.WhatIsTheCountryCompanyHeadOfficeIsBasedController.onSubmit(mode: Mode = NormalMode)
-GET        /changeWhatIsTheCountryCompanyHeadOfficeIsBased      controllers.WhatIsTheCountryCompanyHeadOfficeIsBasedController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeWhatIsTheCountryCompanyHeadOfficeIsBased      controllers.WhatIsTheCountryCompanyHeadOfficeIsBasedController.onSubmit(mode: Mode = CheckMode)
+GET        /whatCountryIsTheHeadOfficeBasedIn                   controllers.WhatCountryIsTheHeadOfficeBasedInController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatCountryIsTheHeadOfficeBasedIn                   controllers.WhatCountryIsTheHeadOfficeBasedInController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatCountryIsTheHeadOfficeBasedIn             controllers.WhatCountryIsTheHeadOfficeBasedInController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatCountryIsTheHeadOfficeBasedIn             controllers.WhatCountryIsTheHeadOfficeBasedInController.onSubmit(mode: Mode = CheckMode)
 
 GET        /doYouWantToAddAnotherProtector                      controllers.DoYouWantToAddAnotherProtectorController.onPageLoad(mode: Mode = NormalMode)
 POST       /doYouWantToAddAnotherProtector                      controllers.DoYouWantToAddAnotherProtectorController.onSubmit(mode: Mode = NormalMode)

@@ -19,13 +19,13 @@ package forms
 import forms.behaviours.StringFieldBehaviours
 import play.api.data.FormError
 
-class WhatIsTheCountryCompanyHeadOfficeIsBasedFormProviderSpec extends StringFieldBehaviours {
+class WhatCountryIsTheHeadOfficeBasedInFormProviderSpec extends StringFieldBehaviours {
 
-  val requiredKey = "whatIsTheCountryCompanyHeadOfficeIsBased.error.required"
-  val lengthKey = "whatIsTheCountryCompanyHeadOfficeIsBased.error.length"
+  val requiredKey = "whatCountryIsTheHeadOfficeBasedIn.error.required"
+  val lengthKey = "whatCountryIsTheHeadOfficeBasedIn.error.length"
   val maxLength = 100
 
-  val form = new WhatIsTheCountryCompanyHeadOfficeIsBasedFormProvider()()
+  val form = new WhatCountryIsTheHeadOfficeBasedInFormProvider()()
 
   ".value" - {
 

@@ -8,7 +8,7 @@
 {% from "macros/title.njk"                         import title %}
 
 {% block pageTitle %}
-  {{ title(messages("whatIsTheCountryCompanyHeadOfficeIsBased.title"), form.errors) }}
+  {{ title(messages("whatCountryIsTheHeadOfficeBasedIn.title"), form.errors) }}
 {% endblock %}
 
 {% block mainContent %}
@@ -28,7 +28,7 @@
           }) }}
         {% endif %}
 
-        <form action="{{ routes.controllers.WhatIsTheCountryCompanyHeadOfficeIsBasedController.onSubmit(mode).url }}" method="post">
+        <form action="{{ routes.controllers.WhatCountryIsTheHeadOfficeBasedInController.onSubmit(mode).url }}" method="post">
 
           {{ csrf() | safe }}
 
@@ -36,7 +36,7 @@
                 id: "country-autocomplete",
                 name: "value",
                 label: {
-                  text: messages('whatIsTheCountryCompanyHeadOfficeIsBased.title'),
+                  text: messages('whatCountryIsTheHeadOfficeBasedIn.title'),
                   isPageHeading: true,
                   classes: "govuk-label--xl"
                 },

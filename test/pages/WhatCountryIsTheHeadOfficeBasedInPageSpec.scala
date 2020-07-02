@@ -16,11 +16,17 @@
 
 package pages
 
-import play.api.libs.json.JsPath
+import pages.behaviours.PageBehaviours
 
-case object WhatIsTheCountryCompanyHeadOfficeIsBasedPage extends QuestionPage[String] {
 
-  override def path: JsPath = JsPath \ toString
+class WhatCountryIsTheHeadOfficeBasedInPageSpec extends PageBehaviours {
 
-  override def toString: String = "whatIsTheCountryCompanyHeadOfficeIsBased"
+  "WhatIsTheCountryCompanyHeadOfficeIsBasedPage" - {
+
+    beRetrievable[String](WhatCountryIsTheHeadOfficeBasedInPage)
+
+    beSettable[String](WhatCountryIsTheHeadOfficeBasedInPage)
+
+    beRemovable[String](WhatCountryIsTheHeadOfficeBasedInPage)
+  }
 }

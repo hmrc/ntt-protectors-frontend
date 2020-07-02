@@ -56,7 +56,7 @@ class CheckYourAnswersController @Inject()(
         helper.whatIsTheirCountryOfResidency,
         helper.whatIsTheNameOfTheCompany,
         helper.doYouKnowTheCountryHeadOfficeIsIn,
-        helper.whatIsTheCountryCompanyHeadOfficeIsBased
+        helper.whatCountryIsTheHeadOfficeBasedIn
       ).flatten
 
       renderer.render(

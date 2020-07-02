@@ -14,19 +14,18 @@
  * limitations under the License.
  */
 
-package pages
+package forms
 
-import pages.behaviours.PageBehaviours
+import javax.inject.Inject
 
+import forms.mappings.Mappings
+import play.api.data.Form
 
-class WhatIsTheCountryCompanyHeadOfficeIsBasedPageSpec extends PageBehaviours {
+class WhatCountryIsTheHeadOfficeBasedInFormProvider @Inject() extends Mappings {
 
-  "WhatIsTheCountryCompanyHeadOfficeIsBasedPage" - {
-
-    beRetrievable[String](WhatIsTheCountryCompanyHeadOfficeIsBasedPage)
-
-    beSettable[String](WhatIsTheCountryCompanyHeadOfficeIsBasedPage)
-
-    beRemovable[String](WhatIsTheCountryCompanyHeadOfficeIsBasedPage)
-  }
+  def apply(): Form[String] =
+    Form(
+      "value" -> text("whatCountryIsTheHeadOfficeBasedIn.error.required")
+        .verifying(maxLength(100, "whatCountryIsTheHeadOfficeBasedIn.error.length"))
+    )
 }

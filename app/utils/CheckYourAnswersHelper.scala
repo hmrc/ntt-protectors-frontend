@@ -45,16 +45,16 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers, countryService: CountrySe
       )
   }
 
-  def whatIsTheCountryCompanyHeadOfficeIsBased: Option[Row] = userAnswers.get(WhatIsTheCountryCompanyHeadOfficeIsBasedPage) map {
+  def whatCountryIsTheHeadOfficeBasedIn: Option[Row] = userAnswers.get(WhatCountryIsTheHeadOfficeBasedInPage) map {
     answer =>
       Row(
-        key     = Key(msg"whatIsTheCountryCompanyHeadOfficeIsBased.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
+        key     = Key(msg"whatCountryIsTheHeadOfficeBasedIn.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
         value   = Value(country(answer)),
         actions = List(
           Action(
             content            = msg"site.edit",
-            href               = routes.WhatIsTheCountryCompanyHeadOfficeIsBasedController.onPageLoad(CheckMode).url,
-            visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"whatIsTheCountryCompanyHeadOfficeIsBased.checkYourAnswersLabel"))
+            href               = routes.WhatCountryIsTheHeadOfficeBasedInController.onPageLoad(CheckMode).url,
+            visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"whatCountryIsTheHeadOfficeBasedIn.checkYourAnswersLabel"))
           )
         )
       )

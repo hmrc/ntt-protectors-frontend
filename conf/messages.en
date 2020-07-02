@@ -200,11 +200,11 @@ doYouKnowTheCountryHeadOfficeIsIn.heading = Do you know the country the head off
 doYouKnowTheCountryHeadOfficeIsIn.checkYourAnswersLabel = Do you know the country the head office is based?
 doYouKnowTheCountryHeadOfficeIsIn.error.required = Select yes if know the country where their head office is based
 
-whatIsTheCountryCompanyHeadOfficeIsBased.title = What is the country the head office is based?
-whatIsTheCountryCompanyHeadOfficeIsBased.heading = What is the country the head office is based?
-whatIsTheCountryCompanyHeadOfficeIsBased.checkYourAnswersLabel = Country the head office is based?
-whatIsTheCountryCompanyHeadOfficeIsBased.error.required = Enter country where head office is based
-whatIsTheCountryCompanyHeadOfficeIsBased.error.length = Country where head office is based must be 100 characters or less
+whatCountryIsTheHeadOfficeBasedIn.title = What is the country the head office is based?
+whatCountryIsTheHeadOfficeBasedIn.heading = What is the country the head office is based?
+whatCountryIsTheHeadOfficeBasedIn.checkYourAnswersLabel = Country the head office is based?
+whatCountryIsTheHeadOfficeBasedIn.error.required = Enter country where head office is based
+whatCountryIsTheHeadOfficeBasedIn.error.length = Country where head office is based must be 100 characters or less
 
 doYouWantToAddAnotherProtector.title = Do you want to add another protector?
 doYouWantToAddAnotherProtector.heading = Do you want to add another protector?

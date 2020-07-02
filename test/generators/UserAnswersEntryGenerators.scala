@@ -32,10 +32,10 @@ trait UserAnswersEntryGenerators extends PageGenerators with ModelGenerators {
       } yield (page, value)
     }
 
-  implicit lazy val arbitraryWhatIsTheCountryCompanyHeadOfficeIsBasedUserAnswersEntry: Arbitrary[(WhatIsTheCountryCompanyHeadOfficeIsBasedPage.type, JsValue)] =
+  implicit lazy val arbitraryWhatIsTheCountryCompanyHeadOfficeIsBasedUserAnswersEntry: Arbitrary[(WhatCountryIsTheHeadOfficeBasedInPage.type, JsValue)] =
     Arbitrary {
       for {
-        page  <- arbitrary[WhatIsTheCountryCompanyHeadOfficeIsBasedPage.type]
+        page  <- arbitrary[WhatCountryIsTheHeadOfficeBasedInPage.type]
         value <- arbitrary[String].suchThat(_.nonEmpty).map(Json.toJson(_))
       } yield (page, value)
     }

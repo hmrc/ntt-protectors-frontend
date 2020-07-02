@@ -73,7 +73,8 @@ class WhatIsTheCountryCompanyHeadOfficeIsBasedController @Inject()(
 
           val json = Json.obj(
             "form" -> formWithErrors,
-            "mode" -> mode
+            "mode" -> mode,
+            "countries" -> countries(request2Messages(request))
           )
 
           renderer.render("whatIsTheCountryCompanyHeadOfficeIsBased.njk", json).map(BadRequest(_))

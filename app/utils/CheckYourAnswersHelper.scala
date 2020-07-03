@@ -199,7 +199,7 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers, countryService: CountrySe
     answer =>
       Row(
         key     = Key(msg"protectorsName.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
-        value   = Value(lit"${answer.FirstName} ${answer.MiddleName}"),
+        value   = Value(lit"${answer.FirstName} ${answer.MiddleName.getOrElse("")} ${answer.LastName}"),
         actions = List(
           Action(
             content            = msg"site.edit",

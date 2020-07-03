@@ -2,3 +2,7 @@ $govuk-assets-path: "/ntt-protectors-frontend/assets/lib/govuk-frontend/govuk/as
 
 @import "lib/govuk-frontend/govuk/all";
 @import "language-toggles.scss";
+
+ul#country-autocomplete__listbox {
+  font-family: arial;
+}

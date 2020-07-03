@@ -138,7 +138,7 @@ protectorType.checkYourAnswersLabel = protectorType
 protectorType.error.required = Select protectorType
 
 protectorsName.title = Register and Maintain a Trust
-protectorsName.heading = What is the Protector's Name?
+protectorsName.heading = What is the Protector`s Name?
 protectorsName.firstName = First Name
 protectorsName.middleName = Middle Name (Optional)
 protectorsName.lastName = Last Name
@@ -148,10 +148,10 @@ protectorsName.error.lastName.required = Enter Last Name
 protectorsName.error.firstName.length = First Name must be 100 characters or less
 protectorsName.error.lastName.length = Last Name must be 100 characters or less
 
-doYouKnowProtectorDateOfBirth.title = Do you know John Doe's date of birth?
-doYouKnowProtectorDateOfBirth.heading = Do you know John Doe's date of birth?
-doYouKnowProtectorDateOfBirth.checkYourAnswersLabel = John Doe's date of birth
-doYouKnowProtectorDateOfBirth.error.required = Select yes if know John Doe's date of birth
+doYouKnowProtectorDateOfBirth.title = Do you know John Doe`s date of birth?
+doYouKnowProtectorDateOfBirth.heading = Do you know John Doe`s date of birth?
+doYouKnowProtectorDateOfBirth.checkYourAnswersLabel = John Doe`s date of birth
+doYouKnowProtectorDateOfBirth.error.required = Select yes if know John Doe`s date of birth
 
 doYouKnowTheirNationality.title = Do you know their Nationality?
 doYouKnowTheirNationality.heading = Do you know their Nationality?

@@ -130,19 +130,19 @@ compliant.nine.p2.2=Digital Accessibility Centre
 compliant.nine.p2.3=The full service was tested by HMRC and included disabled users.
 compliant.nine.p3=This page was prepared on [date when it was first published]. It was last updated on [date when it was last updated].
 
-protectorType.title = Register and Maintain a Trust
+protectorType.title = Is the protector an individual or a business?
 protectorType.heading = Is the protector an individual or a business?
 protectorType.individual = Individual
 protectorType.business = Business
-protectorType.checkYourAnswersLabel = protectorType
-protectorType.error.required = Select protectorType
+protectorType.checkYourAnswersLabel = Is the protector an individual or a business?
+protectorType.error.required = Select Protector Type
 
-protectorsName.title = Register and Maintain a Trust
+protectorsName.title = What is the Protector`s Name?
 protectorsName.heading = What is the Protector`s Name?
 protectorsName.firstName = First Name
 protectorsName.middleName = Middle Name (Optional)
 protectorsName.lastName = Last Name
-protectorsName.checkYourAnswersLabel = Protectors Name
+protectorsName.checkYourAnswersLabel = What is the Protector`s Name?
 protectorsName.error.firstName.required = Enter First Name
 protectorsName.error.lastName.required = Enter Last Name
 protectorsName.error.firstName.length = First Name must be 100 characters or less
@@ -150,7 +150,7 @@ protectorsName.error.lastName.length = Last Name must be 100 characters or less
 
 doYouKnowProtectorDateOfBirth.title = Do you know John Doe`s date of birth?
 doYouKnowProtectorDateOfBirth.heading = Do you know John Doe`s date of birth?
-doYouKnowProtectorDateOfBirth.checkYourAnswersLabel = John Doe`s date of birth
+doYouKnowProtectorDateOfBirth.checkYourAnswersLabel = Do you know John Doe`s date of birth?
 doYouKnowProtectorDateOfBirth.error.required = Select yes if know John Doe`s date of birth
 
 doYouKnowTheirNationality.title = Do you know their Nationality?
@@ -161,7 +161,7 @@ doYouKnowTheirNationality.error.required = Select yes if you know their National
 protectorDateOfBirth.title = What Is Protector Date Of Birth?
 protectorDateOfBirth.heading = What Is Protector Date Of Birth?
 protectorDateOfBirth.hint = For example, 12 11 2007
-protectorDateOfBirth.checkYourAnswersLabel = Protector Date of Birth
+protectorDateOfBirth.checkYourAnswersLabel = What Is Protector Date Of Birth?
 protectorDateOfBirth.error.required.all = Enter the Protectors Date Of Birth
 protectorDateOfBirth.error.required.two = The Date of Birth must include {0} and {1}
 protectorDateOfBirth.error.required = The Date of Birth must include {0}
@@ -169,7 +169,7 @@ protectorDateOfBirth.error.invalid = Enter a real Date of Birth
 
 protectorNationality.title = What is their country of nationality?
 protectorNationality.heading = What is their country of nationality?
-protectorNationality.checkYourAnswersLabel = Protector Nationality
+protectorNationality.checkYourAnswersLabel = What is their country of nationality?
 protectorNationality.error.required = Enter protectors nationality
 protectorNationality.error.length = Nationality  must be 100 characters or less
 
@@ -185,13 +185,13 @@ doYouKnowTheirCountryOfResidency.error.required = Select yes if know their count
 
 whatIsTheirCountryOfResidency.title = What is their country of residency?
 whatIsTheirCountryOfResidency.heading = What is their country of residency?
-whatIsTheirCountryOfResidency.checkYourAnswersLabel = Country of residency
+whatIsTheirCountryOfResidency.checkYourAnswersLabel = What is their country of residency?
 whatIsTheirCountryOfResidency.error.required = Enter their country of residency
 whatIsTheirCountryOfResidency.error.length = Country of residency must be 100 characters or less
 
 whatIsTheNameOfTheCompany.title = What is the name of the company?
 whatIsTheNameOfTheCompany.heading = What is the name of the company?
-whatIsTheNameOfTheCompany.checkYourAnswersLabel = Company Name
+whatIsTheNameOfTheCompany.checkYourAnswersLabel = What is the name of the company?
 whatIsTheNameOfTheCompany.error.required = Enter company name
 whatIsTheNameOfTheCompany.error.length = Company name must be 100 characters or less
 
@@ -211,5 +211,5 @@ doYouWantToAddAnotherProtector.heading = Do you want to add another protector?
 doYouWantToAddAnotherProtector.yesIWantToAddThemNow = Yes. I want to add them now
 doYouWantToAddAnotherProtector.yesIWantToAddThemLater = Yes. I want to add them later
 doYouWantToAddAnotherProtector.noIHaveAddedAllProtectors = No. I have added all protectors
-doYouWantToAddAnotherProtector.checkYourAnswersLabel = Add another protector
+doYouWantToAddAnotherProtector.checkYourAnswersLabel = Do you want to add another protector?
 doYouWantToAddAnotherProtector.error.required = Select if you would like to add another protector

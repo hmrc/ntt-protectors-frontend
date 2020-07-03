@@ -34,7 +34,7 @@ object NormalModeRoutes {
     case WhatIsTheirCountryOfResidencyPage            => _ => routes.WhatIsTheNameOfTheCompanyController.onPageLoad(NormalMode)
     case WhatIsTheNameOfTheCompanyPage                => _ => routes.DoYouKnowTheCountryHeadOfficeIsInController.onPageLoad(NormalMode)
     case DoYouKnowTheCountryHeadOfficeIsInPage        => _ => routes.WhatCountryIsTheHeadOfficeBasedInController.onPageLoad((NormalMode))
-    case WhatCountryIsTheHeadOfficeBasedInPage => _ => routes.DoYouWantToAddAnotherProtectorController.onPageLoad(NormalMode)
+    case WhatCountryIsTheHeadOfficeBasedInPage        => _ => routes.DoYouWantToAddAnotherProtectorController.onPageLoad(NormalMode)
     case DoYouWantToAddAnotherProtectorPage           => _ => routes.CheckYourAnswersController.onPageLoad()
     case _                                            => _ => routes.IndexController.onPageLoad()
   }
